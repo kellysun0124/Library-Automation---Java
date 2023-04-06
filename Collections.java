@@ -4,15 +4,13 @@ public abstract class Collections {
     protected String section;
     protected String collectionID;
     protected String type;
-    protected String author;
     protected String publisher;
     protected String title;
     protected int year;
     protected String genre;
 
-    public Collections(String collectionID, String author, String section, String type, String title, String publisher, int year, String genre) {
+    public Collections(String collectionID, String section, String type, String title, String publisher, int year, String genre) {
         this.collectionID = collectionID;
-        this.author = author;
         this.section = section;
         this.type = type;
         this.title = title;
@@ -31,10 +29,6 @@ public abstract class Collections {
 
     public String getType() {
         return this.type;
-    }
-
-    public String getAuthor() {
-        return this.author;
     }
 
     public String getPublisher() {
