@@ -1,7 +1,9 @@
 public class Student extends Member{
     private int studentID;
+    private Professor advisor;
+    private String studentAdvisor;
 
-    public Student(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, int studentID) {
+    public Student(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, int studentID, Professor advisor) {
         super(name, address, dateOfBirth, email, socialSecurityNumber, memberID);
         this.studentID = studentID;
     }
@@ -11,6 +13,17 @@ public class Student extends Member{
     }
     public void setStudentID(int strudentID) {
         this.studentID = studentID;
+    }
+    
+    public void accessProfessor(Professor advisor) {
+        this.advisor = advisor;
+    }
+
+    public void setAdvisor() {
+        this.studentAdvisor = advisor.getName();
+    }
+    public String getAdvisor() {
+        return studentAdvisor;
     }
     
     private Collections[] collectionsArray = new Collections[5];
