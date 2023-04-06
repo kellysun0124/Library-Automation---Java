@@ -3,8 +3,8 @@ public class Technician extends Employee{
         super(name, address, dateOfBirth, email, socialSecurityNumber, employeeNumber);
     }
     //access collection to re-shelve things
-    public void accessCollectionID(Collections collections){
-        collections.getCollectionID();
+    public String getCollectionID(Collections collection){
+        return collection.getCollectionID();
     }
 }
 

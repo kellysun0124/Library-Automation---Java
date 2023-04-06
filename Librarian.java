@@ -8,6 +8,13 @@ public class Librarian extends Employee {
     public void setMemberID(Member member){
         setMemberID(member);
     }
+    public String getCollectionID(Collections collection){
+        return collection.getCollectionID();
+    }
+    //maybe need to get author? type? 
+    //managing the collections
+    //helping customer with resources
+    
 }
 
 
