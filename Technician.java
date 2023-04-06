@@ -6,6 +6,5 @@ public class Technician extends Employee{
     public void accessCollectionID(Collections collections){
         collections.getCollectionID();
     }
-
 }
 
