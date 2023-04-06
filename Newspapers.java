@@ -1,8 +1,11 @@
+import java.util.Date;
+
 public class Newspapers extends Collections {
     protected String ISSN;
-    protected String author;
+    protected Date date;
+    protected int amountOfPages;
 
-    public Newspapers(String collectionID, String section, String type, String title, String publisher, int year, String genre, String ISBN, String author) {
+    public Newspapers(String collectionID, String section, String type, String title, String publisher, int year, String genre, String ISSN, Date date, int amountOfPages) {
         super(collectionID, section, type, title, publisher, year, genre);
     }
 
@@ -10,7 +13,11 @@ public class Newspapers extends Collections {
         return this.ISSN;
     }
 
-    public String getAuthor() {
-        return this.author;
+    public Date getDate() {
+        return this.date;
+    }
+
+    public int getAmountOfPages() {
+        return this.amountOfPages;
     }
 }
