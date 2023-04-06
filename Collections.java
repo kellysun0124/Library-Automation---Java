@@ -8,8 +8,9 @@ public abstract class Collections {
     protected String publisher;
     protected String title;
     protected int year;
-    
-    public Collections(String collectionID, String author, String section, String type, String title, String publisher, int year) {
+    protected String genre;
+
+    public Collections(String collectionID, String author, String section, String type, String title, String publisher, int year, String genre) {
         this.collectionID = collectionID;
         this.author = author;
         this.section = section;
@@ -17,6 +18,7 @@ public abstract class Collections {
         this.title = title;
         this.publisher = publisher;
         this.year = year;
+        this.genre = genre;
     }
 
     public String getCollectionID() {
