@@ -12,4 +12,15 @@ public class Professor extends Member{
     public void setProfessorID(int strudentID) {
         this.professorID = professorID;
     }
+    private Collections[] collectionsArray = new Collections[5];
+    private int collectionCount = 0;
+    
+    public void addCollection(Collections collection) {
+        if (collectionCount < 5) {
+            collectionsArray[collectionCount] = collection;
+            collectionCount++;
+        } else {
+            System.out.println("Error: Maxium collections reached.");
+        }
+    }
 }
