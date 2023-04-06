@@ -1,13 +1,13 @@
 public class Newspapers extends Collections {
-    protected String ISBN;
+    protected String ISSN;
     protected String author;
-    
+
     public Newspapers(String collectionID, String section, String type, String title, String publisher, int year, String genre, String ISBN, String author) {
         super(collectionID, section, type, title, publisher, year, genre);
     }
 
-    public String getISBN() {
-        return this.ISBN;
+    public String getISSN() {
+        return this.ISSN;
     }
 
     public String getAuthor() {
