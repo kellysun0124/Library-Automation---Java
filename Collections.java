@@ -18,4 +18,32 @@ public abstract class Collections {
         this.publisher = publisher;
         this.year = year;
     }
+
+    public String getCollectionID() {
+        return this.collectionID;
+    }
+
+    public String getSection() {
+        return this.section;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String getPublisher() {
+        return this.publisher;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public int getYear() {
+        return this.year;
+    }
 }
