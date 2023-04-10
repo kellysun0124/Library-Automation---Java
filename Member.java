@@ -14,4 +14,5 @@ public class Member extends Person {
     public void setMemberID(int memberID) {
         this.memberID = memberID;
     }
+    
 }
