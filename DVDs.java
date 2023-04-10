@@ -5,6 +5,8 @@ public class DVDs extends Collections {
     public DVDs(String collectionID, String section, String type, String title, String publisher, int year, String genre, String ISBN, int runTime) {
         super(collectionID, section, type, title, publisher, year, genre);
         //check what to do with author for dvds bruh
+        this.ISBN = ISBN;
+        this.runTime = runTime;
     }
 
     public String getISBN() {
