@@ -11,7 +11,7 @@ public class Student extends Member{
     public int getStudentID() {
         return studentID;
     }
-    public void setStudentID(int strudentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
     
