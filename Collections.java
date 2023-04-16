@@ -6,17 +6,27 @@ public abstract class Collections {
     protected String type;
     protected String publisher;
     protected String title;
-    protected int year;
     protected String genre;
+    protected Calendar datePublished;
+    
+    public Collections() {
+        this.collectionID = "Unknown CollectionID";
+        this.section = "Unknown Section";
+        this.type = "Unknown Type";
+        this.title = "Unknown Title";
+        this.publisher = "Unknown Publisher";
+        this.genre = "Unknown Genre";
+        this.datePublished = Calendar.getInstance();
+        datePublished.set(0, 0, 0);
+    }
 
-    public Collections(String collectionID, String section, String type, String title, String publisher, int year, String genre) {
+    public Collections(String collectionID, String section, String title, String publisher, String genre, Calendar datePublished) {
         this.collectionID = collectionID;
         this.section = section;
-        this.type = type;
         this.title = title;
         this.publisher = publisher;
-        this.year = year;
         this.genre = genre;
+        this.datePublished = datePublished;
     }
 
     public String getCollectionID() {
@@ -39,7 +49,7 @@ public abstract class Collections {
         return this.title;
     }
 
-    public int getYear() {
-        return this.year;
+    public Calendar getDatePublished() {
+        return this.datePublished;
     }
 }
