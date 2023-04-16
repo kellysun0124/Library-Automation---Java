@@ -14,7 +14,7 @@ public class newMemberEvent {
             System.out.print("Enter Member Address: ");
             String address = scn.nextLine();
 
-            System.out.print("Enter Member Date of Birth: ");
+            System.out.print("Enter Member Date of Birth(mm/dd/yyyy): ");
             String dob = scn.nextLine();
 
             System.out.print("Enter Member email: ");
@@ -38,6 +38,5 @@ public class newMemberEvent {
         } catch (Exception e){
         
         }
->>>>>>> 4a80ae6984aa3cf32bd8fd1efadba794ba40bf0c
     }
 }
