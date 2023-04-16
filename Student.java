@@ -3,15 +3,15 @@ public class Student extends Member{
     private Professor advisor;
     private String studentAdvisor;
 
-    public Student(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, int studentID, Professor advisor) {
-        super(name, address, dateOfBirth, email, socialSecurityNumber, memberID);
+    public Student(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, int studentID, Professor advisor, String memberType) {
+        super(name, address, dateOfBirth, email, socialSecurityNumber, memberID, memberType);
         this.studentID = studentID;
     }
 
     public int getStudentID() {
         return studentID;
     }
-    public void setStudentID(int strudentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
     
