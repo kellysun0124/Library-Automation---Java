@@ -1,9 +1,11 @@
 package javaString;
 
+import java.util.Calendar;
+
 class Person {
     private String name;
     private String address;
-    private Date dob;
+    private Calendar dob;
     private String email;
     private String ssn;
 
@@ -12,7 +14,7 @@ class Person {
 
 class Employee extends Person {
     private String employeeID;
-    private Date hireDate;
+    private Calendar hireDate;
     private double salary;
 
     // constructors, getters, and setters
@@ -20,8 +22,8 @@ class Employee extends Person {
 
 class Member extends Person {
     private String memberID;
-    private Date membershipStartDate;
-    private Date membershipEndDate;
+    private Calendar membershipStartDate;
+    private Calendar membershipEndDate;
 
     // constructors, getters, and setters
 }
