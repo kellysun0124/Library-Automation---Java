@@ -1,9 +1,9 @@
 public class Member extends Person {
-    private int memberID;
+    private String memberID;
     private String memberType;
 
     // Constructor
-    public Member(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, String memberType) {
+    public Member(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, String memberID, String memberType) {
         super(name, address, dateOfBirth, email, socialSecurityNumber);
         this.memberID = memberID;
         this.memberType = memberType;
@@ -18,10 +18,11 @@ public class Member extends Person {
     }
 
     // Getter and Setter for memberID
-    public int getMemberID() {
+    public String getID() {
+        
         return memberID;
     }
-    public void setMemberID(int memberID) {
+    public void setMemberID(String memberID) {
         this.memberID = memberID;
     }
     

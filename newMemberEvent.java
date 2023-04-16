@@ -22,16 +22,16 @@ public class newMemberEvent {
         System.out.print("Enter Member SSN: ");
         String ssn = scn.nextLine();
 
+        System.out.print("Enter Member ID: ");
+        String memberID = scn.nextLine();        
+
         System.out.print("Enter Membership type (Student/Professor/External): ");
-        String memtype = scn.nextLine();
+        String membertype = scn.nextLine();
 
         System.out.print("Creating a new member...");
-        Member mem = new Member(name,address,dob,email,ssn,memtype);
+        Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
 
-        //String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, String memberType) {
-        super(name, address, dateOfBirth, email, socialSecurityNumber);
-
-        System.out.print("The membership ID is: "+mem.getID());
+        
 
         mem.saveTo("membershipdatabasefile.txt");
         System.out.println("New Member Successfully Saved to file."); 
