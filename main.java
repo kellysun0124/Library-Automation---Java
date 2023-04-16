@@ -14,20 +14,5 @@ class MainClass{
         System.out.println(book2.getCollectionID());
         
 
-    /* 
-        protected String ISBN;
-        protected String author;
-        protected int amountOfPages;
-
-
-        ---
-        protected String section;
-        protected String collectionID;
-        protected String type;
-        protected String publisher;
-        protected String title;
-        protected int year;
-        protected String genre;
-        */
     }
 }
