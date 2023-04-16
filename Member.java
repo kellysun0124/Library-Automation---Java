@@ -25,7 +25,9 @@ public class Member extends Person {
     public void setMemberID(String memberID) {
         this.memberID = memberID;
     }
-    public void saveTo(String string) {
-    }    
+
+    public String toString() {
+        return String.format("%s\t%s\t%s\t%s\t%s\t%2d\n", this.getName(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getMemberID());
+    }
 }
 
