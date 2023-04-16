@@ -1,8 +1,11 @@
+import java.util.Scanner;
+import java.io.*;
+
 public class newMemberEvent {
     
     public static void newMemberEvent(){
-        System.out.println("Enter Membership info: ");
         Scanner scn = new Scanner(System.in);
+        System.out.println("Enter Membership info: ");
 
         System.out.print("Enter Member Name: ");
         String name = scn.nextLine();
