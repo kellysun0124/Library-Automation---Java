@@ -25,5 +25,7 @@ public class Member extends Person {
     public void setMemberID(String memberID) {
         this.memberID = memberID;
     }
-    
+    public void saveTo(String string) {
+    }    
 }
+
