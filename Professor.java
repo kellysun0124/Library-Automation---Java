@@ -1,15 +1,15 @@
 public class Professor extends Member{
     private int professorID;
 
-    public Professor(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, int professorID) {
-        super(name, address, dateOfBirth, email, socialSecurityNumber, memberID);
+    public Professor(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int memberID, int professorID, String memberType) {
+        super(name, address, dateOfBirth, email, socialSecurityNumber, memberID, memberType);
         this.professorID = professorID;
     }
 
     public int getProfessorID() {
         return professorID;
     }
-    public void setProfessorID(int strudentID) {
+    public void setProfessorID(int professorID) {
         this.professorID = professorID;
     }
     private Collections[] collectionsArray = new Collections[5];
