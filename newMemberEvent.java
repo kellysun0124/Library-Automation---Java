@@ -32,8 +32,18 @@ public class newMemberEvent {
             System.out.print("Creating a new member...");
             Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
 
-        } catch (Exception e){
+            //public Member(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, String memberID, String memberType) {
+
+            
+            FileWriter myWriter = new FileWriter("membershipdatabasefile.txt");
         
+            myWriter.write(mem.toString());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+
+        } catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 }
