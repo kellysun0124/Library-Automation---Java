@@ -18,7 +18,7 @@ public class Member extends Person {
     }
 
     // Getter and Setter for memberID
-    public String getID() {
+    public String getMemberID() {
         
         return memberID;
     }

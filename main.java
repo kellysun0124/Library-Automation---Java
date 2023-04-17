@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 class MainClass{
     public static void main(String[] args){
@@ -12,6 +13,8 @@ class MainClass{
         System.out.println(book2.getISBN());
         System.out.println(book2.getTitle());
         System.out.println(book2.getCollectionID());
+
+        newMemberEvent.newMemberEvent();
         
 
     }
