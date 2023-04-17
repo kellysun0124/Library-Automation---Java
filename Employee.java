@@ -1,11 +1,13 @@
 public class Employee extends Person {
     private int employeeNumber;
+    protected String empType;
 
     // Constructor
     public Employee(String name, String address, String dateOfBirth, String email, String socialSecurityNumber,
-            String emptype, int employeeNumber) {
+            String empType, int employeeNumber) {
         super(name, address, dateOfBirth, email, socialSecurityNumber);
         this.employeeNumber = employeeNumber;
+        this.empType = empType;
     }
 
     // Getter and Setter for employeeNumber
@@ -17,10 +19,12 @@ public class Employee extends Person {
         this.employeeNumber = employeeNumber;
     }
 
-    public String getID() {
-        return null;
+    public String getEmpType() {
+        return this.empType;
     }
 
-    public void saveTo(String string) {
+    public String toString() {
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getName(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getEmpType(), this.getEmployeeNumber());
     }
+
 }

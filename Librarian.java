@@ -1,9 +1,9 @@
 public class Librarian extends Employee {
-    public Librarian (String name, String address, String dateOfBirth, String email, String socialSecurityNumber, int employeeNumber){
-        super(name, address, dateOfBirth, email, socialSecurityNumber, employeeNumber);
+    public Librarian (String name, String address, String dateOfBirth, String email, String socialSecurityNumber, String empType, int employeeNumber){
+        super(name, address, dateOfBirth, email, socialSecurityNumber, empType, employeeNumber);
         
     }
-    public int getMemberID(Member member){
+    public String getMemberID(Member member){
         return member.getMemberID();
     }
     public void setMemberID(Member member){
