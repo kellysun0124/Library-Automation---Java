@@ -32,9 +32,6 @@ public class newMemberEvent {
             System.out.print("Creating a new member...");
             Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
 
-
-            mem.saveTo("membershipdatabasefile.txt");
-            System.out.println("New Member Successfully Saved to file."); 
         } catch (Exception e){
         
         }
