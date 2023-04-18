@@ -20,8 +20,9 @@ public class Books extends Collections {
         this.ISBN = ISBN;
     }
 
-    public Books(String collectionID, String section, String title, String publisher, String genre, Calendar datePublished, String ISBN, String author, int amountOfPages) {
-        super(collectionID, section, title, publisher, genre, datePublished);
+    public Books(String collectionID, String section, String title, String publisher, String genre, String ISBN,
+            String author, String type, int amountOfPages) {
+        super(collectionID, section, title, publisher, genre, type);
         this.type = "Book";
         this.ISBN = ISBN;
         this.author = author;

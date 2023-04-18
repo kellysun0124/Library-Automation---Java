@@ -1,5 +1,3 @@
-import java.util.*;
-
 public abstract class Collections {
     protected String section;
     protected String collectionID;
@@ -7,8 +5,7 @@ public abstract class Collections {
     protected String publisher;
     protected String title;
     protected String genre;
-    protected Calendar datePublished;
-    
+
     public Collections() {
         this.collectionID = "Unknown CollectionID";
         this.section = "Unknown Section";
@@ -16,17 +13,14 @@ public abstract class Collections {
         this.title = "Unknown Title";
         this.publisher = "Unknown Publisher";
         this.genre = "Unknown Genre";
-        this.datePublished = Calendar.getInstance();
-        datePublished.set(0, 0, 0);
     }
 
-    public Collections(String collectionID, String section, String title, String publisher, String genre, Calendar datePublished) {
+    public Collections(String collectionID, String section, String title, String publisher, String genre, String type) {
         this.collectionID = collectionID;
         this.section = section;
         this.title = title;
         this.publisher = publisher;
         this.genre = genre;
-        this.datePublished = datePublished;
     }
 
     public String getCollectionID() {
@@ -41,15 +35,15 @@ public abstract class Collections {
         return this.type;
     }
 
+    public String getGenre() {
+        return this.type;
+    }
+
     public String getPublisher() {
         return this.publisher;
     }
 
     public String getTitle() {
         return this.title;
-    }
-
-    public Calendar getDatePublished() {
-        return this.datePublished;
     }
 }
