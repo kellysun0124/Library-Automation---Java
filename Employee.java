@@ -1,9 +1,11 @@
+import java.util.Date;
+
 public class Employee extends Person {
     private int employeeNumber;
     protected String empType;
 
     // Constructor
-    public Employee(String name, String address, String dateOfBirth, String email, String socialSecurityNumber,
+    public Employee(String name, String address, Date dateOfBirth, String email, String socialSecurityNumber,
             String empType, int employeeNumber) {
         super(name, address, dateOfBirth, email, socialSecurityNumber);
         this.employeeNumber = employeeNumber;
