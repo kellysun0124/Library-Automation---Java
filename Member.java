@@ -1,9 +1,11 @@
+import java.util.Date;
+
 public class Member extends Person {
     private String memberID;
     private String memberType;
 
     // Constructor
-    public Member(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, String memberID, String memberType) {
+    public Member(String name, String address, Date dateOfBirth, String email, String socialSecurityNumber, String memberID, String memberType) {
         super(name, address, dateOfBirth, email, socialSecurityNumber);
         this.memberID = memberID;
         this.memberType = memberType;

@@ -1,12 +1,15 @@
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 public class Person {
-    private String name;
-    private String address;
-    private String dateOfBirth;
-    private String email;
-    private String socialSecurityNumber;
+    protected String name;
+    protected String address;
+    protected Date dateOfBirth;
+    protected String email;
+    protected String socialSecurityNumber;
 
     // Constructor
-    public Person(String name, String address, String dateOfBirth, String email, String socialSecurityNumber) {
+    public Person(String name, String address, Date dateOfBirth, String email, String socialSecurityNumber) {
         this.name = name;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
@@ -27,12 +30,12 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getDateOfBirth() {
-        return dateOfBirth;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(dateOfBirth);
     }
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+
     public String getEmail() {
         return email;
     }
