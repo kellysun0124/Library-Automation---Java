@@ -20,18 +20,19 @@ public class newMemberEvent {
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
             dateFormat.setLenient(false);
 
-            System.out.print("Enter Member Date of Birth(mm/dd/yyyy): ");
-            String input = scn.nextLine();
-            
-            Date dob = Date.from(null);
+            Date dob = new Date(0);
             boolean valid = false;
 
             while(valid != true) {
                 try {
+                    System.out.print("Enter Member Date of Birth(mm/dd/yyyy): ");
+                    String input = scn.nextLine();
+
                     dob = dateFormat.parse(input);
                     valid = true;
                 } catch (ParseException e) {
                     System.out.println("Invalid date format. Please enter date of birth in mm/dd/yyyy format.");
+                    continue;
                 }
             }
 
