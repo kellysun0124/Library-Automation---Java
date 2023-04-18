@@ -26,7 +26,7 @@ public class newMemberEvent {
             Date dob = Date.from(null);
             boolean valid = false;
 
-            while(!valid) {
+            while(valid != true) {
                 try {
                     dob = dateFormat.parse(input);
                     valid = true;
@@ -49,17 +49,10 @@ public class newMemberEvent {
 
             System.out.print("Creating a new member...");
             Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
-
-            //public Member(String name, String address, String dateOfBirth, String email, String socialSecurityNumber, String memberID, String memberType) {
-
             
-            FileWriter myWriter = new FileWriter("membershipdatabasefile.txt");
-        
-            myWriter.write(mem.toString());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            SaveToFile.save(mem.toString(), "members.txt");
 
-        } catch (IOException e){
+        } catch (Exception e){
             System.out.println("An error occurred.");
             e.printStackTrace();
         } finally {
