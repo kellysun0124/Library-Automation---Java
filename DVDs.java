@@ -18,8 +18,9 @@ public class DVDs extends Collections {
         this.ISBN = ISBN;
     }
 
-    public DVDs(String collectionID, String section, String title, String publisher, String genre, Calendar datePublished, String ISBN, int runtime) {
-        super(collectionID, section, title, publisher, genre, datePublished);
+    public DVDs(String collectionID, String section, String title, String publisher, String genre, String ISBN,
+            String type, int runtime) {
+        super(collectionID, section, title, publisher, genre, type);
         this.type = "DVD";
         this.ISBN = ISBN;
         this.runtime = runtime;

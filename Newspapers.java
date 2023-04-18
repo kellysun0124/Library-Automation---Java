@@ -18,8 +18,9 @@ public class Newspapers extends Collections {
         this.ISSN = ISSN;
     }
 
-    public Newspapers(String collectionID, String section, String title, String publisher, String genre, Calendar datePublished, String ISSN, int amountOfPages) {
-        super(collectionID, section, title, publisher, genre, datePublished);
+    public Newspapers(String collectionID, String section, String title, String publisher, String genre, String type,
+            String ISSN, int amountOfPages) {
+        super(collectionID, section, title, publisher, genre, type);
         this.type = "Newspaper";
         this.ISSN = ISSN;
         this.amountOfPages = amountOfPages;

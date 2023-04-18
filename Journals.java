@@ -20,8 +20,9 @@ public class Journals extends Collections {
         this.ISSN = ISSN;
     }
 
-    public Journals(String collectionID, String section, String title, String publisher, String genre, Calendar datePublished, String ISSN, String author, int amountOfPages) {
-        super(collectionID, section, title, publisher, genre, datePublished);
+    public Journals(String collectionID, String section, String title, String publisher, String genre, String type,
+            String ISSN, String author, int amountOfPages) {
+        super(collectionID, section, title, publisher, genre, type);
         this.type = "Journal";
         this.ISSN = ISSN;
         this.author = author;
