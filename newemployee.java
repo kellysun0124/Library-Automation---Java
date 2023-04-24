@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class newemployee {
 
-    public static void newEmployeeEvent() {
+    public static void newEmployeeEvent(int empNum) {
         Scanner scn = new Scanner(System.in);
         System.out.println("Enter New Employee info: ");
         System.out.print("Enter Employee Full Name: ");
@@ -18,9 +18,10 @@ public class newemployee {
         System.out.print("Enter Employee type (Librarian/Technician)");
         String emptype = scn.nextLine();
         System.out.print("Creating a new employee.....");
-        Employee mem = new Employee(name, address, dateOfBirth, email, socialsecuritynumber, emptype, 0);
-        System.out.print("The Employee ID is: " + mem.getID());
-        mem.saveTo("employeedatabasefile.txt");
+        Employee mem = new Employee(name, address, dateOfBirth, email, socialsecuritynumber, emptype, empNum);
+        System.out.print("The Employee ID is: " + mem.getEmployeeNumber());
+        String stringMem = mem.toString();
+        SaveToFile.save(stringMem, "employees.txt");
         System.out.println("New Employee Successfully Saved to file.");
     }
 }

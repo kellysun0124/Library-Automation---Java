@@ -61,6 +61,7 @@ public class newCollectionEvent {
                     String author = "";
                     int amountOfPages = 0;
                     while (true) {
+                        //add if to check if > 6 characters
                         System.out.print("Enter ISBN: ");
                         ISBN = scn.nextLine();
 
@@ -83,6 +84,7 @@ public class newCollectionEvent {
                     author = "";
                     amountOfPages = 0;
                     while (true) {
+                        //check for > 6, different while loop
                         System.out.print("Enter ISSN: ");
                         ISSN = scn.nextLine();
 
@@ -128,13 +130,9 @@ public class newCollectionEvent {
                     return;
             }
 
-            FileWriter myWriter = new FileWriter("Collectiondatabase.txt");
+            SaveToFile.save(mem.toString(), "Collectiondatabase.txt");
 
-            myWriter.write(mem.toString());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }

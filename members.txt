@@ -1,1 +1,3 @@
-ads	asd	12/30/2002	asd@fasf	ada	asd	asd
+1	asd	11/11/1111	asd	asd	asd	external
+2	asd	11/11/1111	asd	asd	sad	student
+3	asd	11/11/1111	asd	asd	asd	student

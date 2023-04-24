@@ -29,7 +29,7 @@ public class Member extends Person {
     }
 
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getName(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getMemberID(), this.getMemberType());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getMemberID(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getName(), this.getMemberType());
     }
 }
 
