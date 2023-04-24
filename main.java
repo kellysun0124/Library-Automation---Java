@@ -16,6 +16,9 @@ class MainClass{
 
         newMemberEvent.newMemberEvent();
         
+        //newCollectionEvent.newCollectionEvent();
+        //RemoveCollectionEvent.removeCollection();
+
         
     }
 }

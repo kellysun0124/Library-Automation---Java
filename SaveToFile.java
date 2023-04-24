@@ -1,12 +1,12 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.BufferedWriter;
+
+import java.util.*;
+import java.io.*;
 
 public class SaveToFile {
     public static void save(String obj, String filename) {
         try {
-            BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename));
-            
+            BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
+
             myWriter.write(obj);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");

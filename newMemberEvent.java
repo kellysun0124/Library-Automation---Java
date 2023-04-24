@@ -40,15 +40,30 @@ public class newMemberEvent {
             String email = scn.nextLine();
 
             System.out.print("Enter Member SSN: ");
-            String ssn = scn.nextLine();
+            String ssn = scn.nextLine();       
+            
+            String membertype = "Student";
 
-            System.out.print("Enter Member ID: ");
-            String memberID = scn.nextLine();        
+            Boolean validInput = false;
 
-            System.out.print("Enter Membership type (Student/Professor/External): ");
-            String membertype = scn.nextLine();
+            while (validInput == false) {
+                System.out.print("Enter Membership type (Student/Professor/External): ");
+                membertype = scn.nextLine().toLowerCase();
 
-            System.out.print("Creating a new member...");
+                switch(membertype) {
+                    case "student":
+                    case "professor":
+                    case "external":
+                        validInput = true;
+                        break;
+                    case default:
+                        System.out.println("Please enter a valid member type.");
+                }
+            }
+
+            System.out.print("Creating a new member...\n");
+            
+            String memberID = GetIDs.returnID("members.txt");
             Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
             
             SaveToFile.save(mem.toString(), "members.txt");

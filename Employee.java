@@ -17,7 +17,7 @@ public class Employee extends Person {
         return employeeNumber;
     }
 
-    public void setEmployeeNumber(int employeeNumber) {
+    public void setEmployeeNumber(int employeeNumber) { 
         this.employeeNumber = employeeNumber;
     }
 

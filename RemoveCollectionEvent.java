@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class RemoveCollectionEvent {
 
-    public void removeCollection() {
+    public static void removeCollection() {
         Scanner scanner = new Scanner(System.in);
 
         // Get the ID of the collection to be removed
@@ -12,7 +12,7 @@ public class RemoveCollectionEvent {
         scanner.nextLine();
 
         // Read the collections.txt file line by line
-        File inputFile = new File("Collectionsdatabase.txt");
+        File inputFile = new File("Collectiondatabase.txt");
         File tempFile = new File("temp.txt");
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
              FileWriter writer = new FileWriter(tempFile)) {
