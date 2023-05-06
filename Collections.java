@@ -6,6 +6,7 @@ public abstract class Collections {
     protected String title;
     protected String genre;
 
+    //set defaults 
     public Collections() {
         this.collectionID = "Unknown CollectionID";
         this.section = "Unknown Section";
@@ -15,6 +16,7 @@ public abstract class Collections {
         this.genre = "Unknown Genre";
     }
 
+    //constructors
     public Collections(String collectionID, String section, String title, String publisher, String genre, String type) {
         this.collectionID = collectionID;
         this.section = section;

@@ -6,10 +6,10 @@ public class External extends Member {
         super(name, address, dateOfBirth, email, socialSecurityNumber, memberID, memberType);
         
     }
-    
+    //I think the professor account is different from their member account?
     private Collections[] collectionsArray = new Collections[5];
     private int collectionCount = 0;
-    
+    //can only check out 5 collections
     public void addCollection(Collections collection) {
         if (collectionCount < 5) {
             collectionsArray[collectionCount] = collection;

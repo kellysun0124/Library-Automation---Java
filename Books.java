@@ -5,6 +5,7 @@ public class Books extends Collections {
     protected String author;
     protected int amountOfPages;
 
+    //set defaults and set type to book
     public Books() {
         super();
         this.type = "Book";
@@ -40,7 +41,7 @@ public class Books extends Collections {
     public int getAmountOfPages() {
         return this.amountOfPages;
     }
-
+    //make into string to be used with SaveToFile.java
     public String toString() {
         return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getAmountOfPages());
     }

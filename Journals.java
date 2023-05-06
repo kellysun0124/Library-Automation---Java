@@ -5,6 +5,7 @@ public class Journals extends Collections {
     protected String author;
     protected int amountOfPages;
 
+    //set defaults and set type to journal
     public Journals() {
         super();
         this.type = "Journal";
@@ -41,6 +42,7 @@ public class Journals extends Collections {
         return this.amountOfPages;
     }
 
+    //make into string to be used with SaveToFile.java
     public String toString() {
         return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAuthor(), this.getAmountOfPages());
     }

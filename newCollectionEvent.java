@@ -5,6 +5,7 @@ public class newCollectionEvent {
 
     public static void newCollectionEvent() {
         try {
+            //get input from user
             Scanner scn = new Scanner(System.in);
             System.out.println("Enter Collection Information: ");
 
@@ -37,6 +38,8 @@ public class newCollectionEvent {
 
             System.out.print("Creating a new member...");
             Collections mem;
+
+            //switch based on type of collection and make new collection based on switch case
             switch (type) {
                 case "dvds":
                     String ISBN = "";
@@ -124,14 +127,13 @@ public class newCollectionEvent {
                     }
                     mem = new Newspapers(collectionID, section, title, publisher, genre, type, ISSN, amountOfPages);
                     break;
-
                 default:
                     System.out.println("Invalid collection type. Please enter DVDS, Books, Journals, or Newspaper.");
                     return;
             }
-
             SaveToFile.save(mem.toString(), "Collectiondatabase.txt");
 
+            //catch error and output
         } catch (Exception e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

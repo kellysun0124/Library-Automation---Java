@@ -4,6 +4,7 @@ public class Newspapers extends Collections {
     protected String ISSN;
     protected int amountOfPages;
 
+    //set default and set type to newspaper
     public Newspapers() {
         super();
         this.type = "Newspaper";
@@ -34,6 +35,7 @@ public class Newspapers extends Collections {
         return this.amountOfPages;
     }
 
+    //make into string to be used with SaveToFile.java
     public String toString() {
         return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAmountOfPages());
     }
