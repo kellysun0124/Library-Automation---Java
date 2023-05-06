@@ -36,6 +36,11 @@ public class Person {
         return dateFormat.format(dateOfBirth);
     }
 
+    //Added
+    public void setDateOfBirth(Date dob) {
+        this.dateOfBirth = dob;
+    }
+
     public String getEmail() {
         return email;
     }
