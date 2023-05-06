@@ -4,6 +4,7 @@ public class DVDs extends Collections {
     protected String ISBN;
     protected int runtime;
 
+    //default & set type to dvd
     public DVDs() {
         super();
         this.type = "DVD";
@@ -34,6 +35,7 @@ public class DVDs extends Collections {
         return this.runtime;
     }
 
+    //make into string to be used with SaveToFile.java
     public String toString() {
         return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getRuntime());
     }
