@@ -19,23 +19,20 @@ public class Newspapers extends Collections {
     }
 
     public Newspapers(String collectionID, String section, String title, String publisher, String genre, String type,
-            String ISSN, int amountOfPages) {
+            String ISSN) {
         super(collectionID, section, title, publisher, genre, type);
         this.type = "Newspaper";
         this.ISSN = ISSN;
-        this.amountOfPages = amountOfPages;
     }
 
     public String getISSN() {
         return this.ISSN;
     }
 
-    public int getAmountOfPages() {
-        return this.amountOfPages;
-    }
+
 
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAmountOfPages());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN());
     }
 }
