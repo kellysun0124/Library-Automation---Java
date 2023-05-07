@@ -9,7 +9,7 @@ public class Books extends Collections {
     public Books() {
         super();
         this.type = "Book";
-        this.ISBN = "000000";
+        this.ISBN = "0000000000000";
         this.author = "Unknown Author";
         this.amountOfPages = 0;
     }
