@@ -72,7 +72,7 @@ public class newMemberEvent {
                 */
 
             //make new member, make and get new member id
-            //note memberID is the second to last one but should it be the first one????
+   
             Member mem = new Member(name, address, dob, email, ssn, memberID, membertype);
             System.out.print("The member ID is: " + mem.getMemberID());
             String stringMem = mem.toString();
