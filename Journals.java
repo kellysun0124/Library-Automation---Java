@@ -3,13 +3,12 @@ import java.util.*;
 public class Journals extends Collections {
     protected String ISSN;
     protected String author;
-    protected int amountOfPages;
 
     //set defaults and set type to journal
     public Journals() {
         super();
         this.type = "Journal";
-        this.ISSN = "000000";
+        this.ISSN = "0000000";
         this.author = "Unknown Author";
         this.amountOfPages = 0;
     }
@@ -27,7 +26,6 @@ public class Journals extends Collections {
         this.type = "Journal";
         this.ISSN = ISSN;
         this.author = author;
-        this.amountOfPages = amountOfPages;
     }
 
     public String getISSN() {
@@ -38,12 +36,10 @@ public class Journals extends Collections {
         return this.author;
     }
 
-    public int getAmountOfPages() {
-        return this.amountOfPages;
-    }
+
 
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAuthor(), this.getAmountOfPages());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAuthor());
     }
 }
