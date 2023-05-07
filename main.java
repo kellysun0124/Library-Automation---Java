@@ -26,6 +26,6 @@ public class main {
         //UpdateMember.update(<member>);
 
         //should make some data for each (books, dvd, journals, newpapers, professor, student, external, technicians)
-        //check all is working (newEmployee, newCOllectionEvent, newMemberEvent, removeCollectionEvent, removeEmployeeEvent, updateMember, borrowEvent, checkoutEvent)
+        //check all is working (newEmployee, newCOllectionEvent, newMemberEvent, removeCollectionEvent, removeEmployeeEvent, updateMember, CheckInEvent, checkoutEvent)
     }
 }

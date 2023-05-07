@@ -75,6 +75,5 @@ public class RemoveCollectionEvent {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

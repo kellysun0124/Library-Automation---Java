@@ -17,6 +17,7 @@ public class Professor extends Member{
     private Collections[] collectionsArray = new Collections[5];
     private int collectionCount = 0;
     //can only check out 5 collections
+    /*
     public void addCollection(Collections collection) {
         if (collectionCount < 5) {
             collectionsArray[collectionCount] = collection;
@@ -25,4 +26,5 @@ public class Professor extends Member{
             System.out.println("Error: Maxium collections reached.");
         }
     }
+    */
 }
