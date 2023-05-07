@@ -2,13 +2,12 @@ import java.util.Calendar;
 
 public class Newspapers extends Collections {
     protected String ISSN;
-    protected int amountOfPages;
 
     //set default and set type to newspaper
     public Newspapers() {
         super();
         this.type = "Newspaper";
-        this.ISSN = "000000";
+        this.ISSN = "0000000";
         this.amountOfPages = 0;
     }
 
