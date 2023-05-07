@@ -8,7 +8,6 @@ public class Newspapers extends Collections {
         super();
         this.type = "Newspaper";
         this.ISSN = "0000000";
-        this.amountOfPages = 0;
     }
 
     public Newspapers(String collectionID, String title, String ISSN) {
