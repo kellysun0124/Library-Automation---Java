@@ -17,7 +17,12 @@ public class Checkout {
         if (idExists == true) {
             System.out.println("The member's currently checked out items are: ");
             for (int i = 0; i < 5; i++) {
-                System.out.println("\t" + member.getCheckedOut(i));
+                String item = member.getCheckedOut(i);
+                if(!item.equals("0")) {
+                    System.out.println(" *" + member.getCheckedOut(i));
+                } else {
+                    System.out.println(" *Empty");
+                }
             }
 
             
@@ -26,10 +31,20 @@ public class Checkout {
             readCheckedOutItems(1, "0", id, member, total);
 
             if (total[0] < 5) {
+                int more = 5 - total[0];
+                System.out.printf("You can checkout %d more items.\n", more);
                 System.out.print("Would you like to checkout another item?(y/n) ");
-                String answer = scn.nextLine();
+                
+                String answer = "";
 
-                if (answer.toLowerCase() == "y") {
+                if(scn.hasNextLine()) {
+                    answer = scn.nextLine();
+                } else {
+                    System.out.println("NO INPUT");
+                }
+                
+
+                if (answer.toLowerCase().equals("y")) {
                     String newItemID = checkoutNewItem(scn);
                     readCheckedOutItems(1, newItemID, id, member, total);
 
@@ -101,8 +116,9 @@ public class Checkout {
                 }
 
                 if (toDo == 1 && id == memID) {
-                    for (int i = 0; i < 6; i++) {
-                        if (currInfo[i] != "0") {
+                    for (int i = 1; i < 6; i++) {
+                        if (!currInfo[i].equals("0")) {
+                            System.out.println("Not equal");
                             total[0]++;
                         }
                     }
@@ -132,7 +148,7 @@ public class Checkout {
             }
 
             reader.close();
-            //temp.delete();
+            temp.delete();
             checkedOutItems.delete();
             temp.renameTo(checkedOutItems);
         } catch (IOException e) {

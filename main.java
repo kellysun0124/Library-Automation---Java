@@ -27,6 +27,7 @@ public class main {
         //newCollectionEvent.newCollectionEvent();
         //RemoveCollectionEvent.removeCollection();
 
+        Checkout.checkouts(member1);
         //Checkout.checkouts(member1);
         //Call this method with the member object to be updated
         //UpdateMember.update(<member>);
