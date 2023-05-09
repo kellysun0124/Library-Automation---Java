@@ -25,6 +25,7 @@ public class Employee extends Person {
         return this.empType;
     }
 
+    //make into string to be used with SaveToFile.java
     public String toString() {
         return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getName(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getEmpType(), this.getEmployeeNumber());
     }

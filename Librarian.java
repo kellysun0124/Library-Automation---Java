@@ -16,9 +16,6 @@ public class Librarian extends Employee {
     public String getBookISBN(Books book){
         return book.getISBN();
     }
-    //maybe need to get author? type? 
-    //managing the collections
-    //helping customer with resources
     
 }
 
