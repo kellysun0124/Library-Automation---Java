@@ -10,7 +10,7 @@ public class Member extends Person {
         super();
         this.memberID = "0";
         this.memberType = "student";
-        this.checkedOut = new String[4];
+        this.checkedOut = new String[5];
         Arrays.fill(checkedOut, "0");
     }
 
@@ -19,7 +19,7 @@ public class Member extends Person {
         super(name, address, dateOfBirth, email, socialSecurityNumber);
         this.memberID = memberID;
         this.memberType = memberType;
-        this.checkedOut = new String[4];
+        this.checkedOut = new String[5];
         Arrays.fill(checkedOut, "0");
     }
 

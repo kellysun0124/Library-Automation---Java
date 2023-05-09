@@ -15,13 +15,13 @@ public class main {
         System.out.println(book2.getCollectionID());*/
 
         Date dob = new Date(0);
-        Member member1 = new Member("default", "default", dob, "default", "default", "1", "student");
+        Member member1 = new Member("default", "default", dob, "default", "default", "0", "student");
         
         UpdateMember.update(member1);
 
         //newCollectionEvent.newCollectionEvent();
         //RemoveCollectionEvent.removeCollection();
 
-        //Checkout.checkouts(member1);
+        Checkout.checkouts(member1);
     }
 }
