@@ -35,6 +35,6 @@ public class DVDs extends Collections {
     }
 
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getRuntime());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getISBN(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getRuntime());
     }
 }

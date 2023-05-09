@@ -9,7 +9,6 @@ public class SaveToFile {
 
             myWriter.write(obj);
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred while trying to write the object to a file: " + e.getMessage());
         }

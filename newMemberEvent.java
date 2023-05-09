@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 public class newMemberEvent {
     
-    public static void newMemberEvent(){
+    public static void newMemberEvent(Member newMem){
         Scanner scn = new Scanner(System.in);
         try{
             System.out.println("Enter Membership info: ");
@@ -56,7 +56,7 @@ public class newMemberEvent {
                     case "external":
                         validInput = true;
                         break;
-                    case default:
+                    default:
                         System.out.println("Please enter a valid member type.");
                 }
             }
@@ -67,6 +67,7 @@ public class newMemberEvent {
             Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
             
             SaveToFile.save(mem.toString(), "members.txt");
+            newMem = mem;
 
         } catch (Exception e){
             System.out.println("An error occurred.");

@@ -42,6 +42,6 @@ public class Journals extends Collections {
     }
 
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAuthor(), this.getAmountOfPages());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getISSN(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getAuthor(), this.getAmountOfPages());
     }
 }
