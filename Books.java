@@ -43,6 +43,6 @@ public class Books extends Collections {
     }
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getAmountOfPages());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getISBN(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getAuthor(), this.getAmountOfPages());
     }
 }
