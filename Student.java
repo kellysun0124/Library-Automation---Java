@@ -3,8 +3,7 @@ import java.util.Date;
 public class Student extends Member{
     private int studentID;
     private Professor advisor;
-    private String studentAdvisor;
-
+    //constructor
     public Student(String name, String address, Date dateOfBirth, String email, String socialSecurityNumber, String memberID, int studentID, Professor advisor, String memberType) {
         super(name, address, dateOfBirth, email, socialSecurityNumber, memberID, memberType);
         this.studentID = studentID;
@@ -21,15 +20,11 @@ public class Student extends Member{
         this.advisor = advisor;
     }
 
-    public void setAdvisor() {
-        this.studentAdvisor = advisor.getName();
-    }
-    public String getAdvisor() {
-        return studentAdvisor;
-    }
-    
+    /*
     private Collections[] collectionsArray = new Collections[5];
     private int collectionCount = 0;
+
+    //can only check out 5 collections
     
     public void addCollection(Collections collection) {
         if (collectionCount < 5) {
@@ -39,4 +34,5 @@ public class Student extends Member{
             System.out.println("Error: Maxium collections reached.");
         }
     }
+    */
 }

@@ -56,8 +56,6 @@ public class Member extends Person {
         this.memberID = memberID;
     }
 
-
-
     public String toString() {
         return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getMemberID(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getName(), this.getMemberType());
     }

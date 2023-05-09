@@ -9,6 +9,7 @@ public class newMemberEvent {
     public static void newMemberEvent(Member newMem){
         Scanner scn = new Scanner(System.in);
         try{
+            //get user input
             System.out.println("Enter Membership info: ");
 
             System.out.print("Enter Member Name: ");
@@ -63,11 +64,22 @@ public class newMemberEvent {
 
             System.out.print("Creating a new member...\n");
             
+            /* 
             String memberID = GetIDs.returnID("members.txt");
             Member mem = new Member(name,address,dob,email,ssn,memberID,membertype);
             
             SaveToFile.save(mem.toString(), "members.txt");
             newMem = mem;
+                */
+
+            //make new member, make and get new member id
+   
+            Member mem = new Member(name, address, dob, email, ssn, memberID, membertype);
+            System.out.print("The member ID is: " + mem.getMemberID());
+            String stringMem = mem.toString();
+            //use savetofile to save to txt
+            SaveToFile.save(stringMem, "members.txt");
+            System.out.println("New Member Successfully Saved to file.");
 
         } catch (Exception e){
             System.out.println("An error occurred.");

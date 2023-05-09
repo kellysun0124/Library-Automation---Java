@@ -9,12 +9,14 @@ import java.util.Scanner;
 public class RemoveEmployeeEvent {
 
     public static void removeEmployeeEvent() {
+        //get user input
         Scanner scn = new Scanner(System.in);
         System.out.println("Enter Employee ID to remove: ");
         int idToRemove = scn.nextInt();
         scn.nextLine();
 
         List<String> lines = new ArrayList<>();
+        //access employeedatabase.txt
         try {
             BufferedReader reader = new BufferedReader(new FileReader("employeedatabase.txt"));
             String line;
