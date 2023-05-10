@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class removeCollectionEvent {
+public class checkInEvent {
 
-    public static void removeCollectionEvent() {
+    public static void checkInEvent() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter the ID of the collection to be removed: ");
+        System.out.println("Please enter the ID of the collection to be checked in: ");
         String collectionId = scanner.nextLine();
 
         File myFile = new File("Collectiondatabase.txt");
@@ -27,9 +27,9 @@ public class removeCollectionEvent {
             }
 
             if (!found) {
-                System.out.println("Collection not found.");
+                System.out.println("Book not found.");
             } else {
-                System.out.println("Collection removed successfully.");
+                System.out.println("Book returned successfully.");
             }
 
         } catch (IOException e) {
@@ -48,15 +48,16 @@ public class removeCollectionEvent {
                 }
 
                 String collectionID = elements[0];
-                String title = elements[1];
-                String publisher = elements[2];
-                String genre = elements[3];
-                String ISBN = elements[4];
-                String type = elements[5];
-                int runtime = Integer.parseInt(elements[6]);
+                String section = elements[1];
+                String title = elements[2];
+                String publisher = elements[3];
+                String genre = elements[4];
+                String ISBN = elements[5];
+                String type = elements[6];
+                int runtime = Integer.parseInt(elements[7]);
 
-                String formattedCollection = String.format("%s\t%s\t%s\t%s\t%s\t%s",
-                        collectionID, title, publisher, genre, ISBN, type, runtime);
+                String formattedCollection = String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%d",
+                        collectionID, section, title, publisher, genre, ISBN, type, runtime);
                 writer.write(formattedCollection + "\n"); // changed to "\n"
             }
 

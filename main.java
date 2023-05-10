@@ -28,6 +28,41 @@ public class main {
         //UpdateMember.update(<member>);
 
         //should make some data for each (books, dvd, journals, newpapers, professor, student, external, technicians)
-        //check all is working (newEmployee, newCOllectionEvent, newMemberEvent, removeCollectionEvent, removeEmployeeEvent, updateMember, CheckInEvent, checkoutEvent)
+        
+        //------------------------------------
+        //check all is working 
+
+        //newEmployee, 
+        //newEmployee.newEmployeeEvent();
+        //YAYYYY works
+
+        //newCOllectionEvent, 
+        //newCollectionEvent.newCollectionEvent();
+        //it workzzz
+       
+
+        //newMemberEvent, 
+        //newMemberEvent.newMemberEvent();
+        //yayyyyy it works
+        
+        //removeCollectionEvent, 
+        //removeCollectionEvent.removeCollectionEvent();
+        //yay it worksssz
+        
+        //removeEmployeeEvent, 
+        //removeEmployeeEvent.removeEmployeeEvent();
+        //it works ayayyayayayyayayyyyay
+        
+        //updateMember, 
+
+        
+        //CheckInEvent, 
+        //checkInEvent.checkInEvent();
+        //works just need to change txt files name 
+       
+        
+        //checkoutEvent
+
+        
     }
 }

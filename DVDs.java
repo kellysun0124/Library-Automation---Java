@@ -17,9 +17,9 @@ public class DVDs extends Collections {
         this.ISBN = ISBN;
     }
 
-    public DVDs(String collectionID, String section, String title, String publisher, String genre, String ISBN,
-            String typee) {
-        super(collectionID, section, title, publisher, genre, type);
+    public DVDs(String collectionID, String title, String publisher, String genre, String ISBN,
+            String type) {
+        super(collectionID, title, publisher, genre, type);
         this.type = "DVD";
         this.ISBN = ISBN;
     }
@@ -32,6 +32,6 @@ public class DVDs extends Collections {
 
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN());
+        return String.format("%s\t%s\t$s\t$s\t$s\t$s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getType());
     }
 }

@@ -12,6 +12,9 @@ public class newMemberEvent {
             //get user input
             System.out.println("Enter Membership info: ");
 
+            System.out.print("Enter Member ID: ");
+            String memberID = scn.nextLine();
+
             System.out.print("Enter Member Name: ");
             String name = scn.nextLine();
 
@@ -57,7 +60,7 @@ public class newMemberEvent {
                     case "external":
                         validInput = true;
                         break;
-                    case default:
+                    default:
                         System.out.println("Please enter a valid member type.");
                 }
             }
@@ -74,7 +77,6 @@ public class newMemberEvent {
             //make new member, make and get new member id
    
             Member mem = new Member(name, address, dob, email, ssn, memberID, membertype);
-            System.out.print("The member ID is: " + mem.getMemberID());
             String stringMem = mem.toString();
             //use savetofile to save to txt
             SaveToFile.save(stringMem, "members.txt");
