@@ -8,6 +8,16 @@ public class Person {
     protected String email;
     protected String socialSecurityNumber;
 
+    // Default constructor 
+    public Person() {
+        this.name = "default";
+        this.address = "default";
+        this.email = "default";
+        this.socialSecurityNumber = "default";
+        Date dob = new Date(0);
+        this.dateOfBirth = dob;
+    }
+
     // Constructor
     public Person(String name, String address, Date dateOfBirth, String email, String socialSecurityNumber) {
         this.name = name;

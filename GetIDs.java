@@ -24,7 +24,7 @@ public class GetIDs {
                 }
                 countString = Integer.toString(count);
                 return countString;
-            case default:
+            default:
                 return "Invalid filename";
         }
     }
@@ -42,7 +42,7 @@ public class GetIDs {
             }
             
             sc.close();
-            return count+1;
+            return count;
         } catch (Exception e){
             e.getStackTrace();
             return -1;

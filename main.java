@@ -1,68 +1,48 @@
 import java.util.*;
-import java.io.*;
 
-public class main {
-    public static void main(String[] args){
+public class Books extends Collections {
+    protected String ISBN;
+    protected String author;
+ 
 
-        
-        /*
-        Books book1 = new Books();
-        System.out.println(book1.getISBN());
-        System.out.println(book1.getTitle());
-        */
+    //set defaults and set type to book
+    public Books() {
+        super();
+        this.type = "Book";
+        this.ISBN = "0000000000000";
+        this.author = "Unknown Author";
 
+    }
 
-        /*
-        Books book2 = new Books("1", "Percy Jackson", "ABC123");
-        System.out.println(book2.getISBN());
-        System.out.println(book2.getTitle());
-        System.out.println(book2.getCollectionID());
-        */
+    public Books(String collectionID, String title, String ISBN) {
+        this();
+        this.collectionID = collectionID;
+        this.title = title;
+        this.ISBN = ISBN;
+    }
 
-        //newMemberEvent.newMemberEvent();
-        
-        //newCollectionEvent.newCollectionEvent();
-        //RemoveCollectionEvent.removeCollection();
+    public Books(String collectionID, String title, String publisher, String genre, String ISBN,
+            String author, String type) {
+        super(collectionID, title, publisher, genre, type);
+        this.type = "books";
+        this.ISBN = ISBN;
+        this.author = author;
+    
+    }
 
-        //Call this method with the member object to be updated
-        //UpdateMember.update(<member>);
+    public String getISBN() {
+        return this.ISBN;
+    }
 
-        //should make some data for each (books, dvd, journals, newpapers, professor, student, external, technicians)
-        
-        //------------------------------------
-        //check all is working 
+    public String getAuthor() {
+        return this.author;
+    }
 
-        //newEmployee, 
-        //newEmployee.newEmployeeEvent();
-        //YAYYYY works
+    //make into string to be used with SaveToFile.java
+    
+    public String toString() {
 
-        //newCOllectionEvent, 
-        //newCollectionEvent.newCollectionEvent();
-        //it workzzz
-       
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getType());
 
-        //newMemberEvent, 
-        //newMemberEvent.newMemberEvent();
-        //yayyyyy it works
-        
-        //removeCollectionEvent, 
-        //removeCollectionEvent.removeCollectionEvent();
-        //yay it worksssz
-        
-        //removeEmployeeEvent, 
-        //removeEmployeeEvent.removeEmployeeEvent();
-        //it works ayayyayayayyayayyyyay
-        
-        //updateMember, 
-
-        
-        //CheckInEvent, 
-        //checkInEvent.checkInEvent();
-        //works just need to change txt files name 
-       
-        
-        //checkoutEvent
-
-        
     }
 }
