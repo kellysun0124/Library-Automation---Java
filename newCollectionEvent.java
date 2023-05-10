@@ -1,23 +1,38 @@
 import java.util.Scanner;
+
+import javax.sound.sampled.BooleanControl.Type;
+
 import java.io.*;
+import java.util.*;
 
 public class newCollectionEvent {
 
     public static void newCollectionEvent() {
+
         try {
             //get input from user
             Scanner scn = new Scanner(System.in);
             System.out.println("Enter Collection Information: ");
 
-            System.out.print("Enter Collection ID: ");
+            System.out.println("Enter Collection ID: ");
             String collectionID = scn.nextLine();
 
-            System.out.print("Enter Section: ");
-            String section = scn.nextLine();
 
+            System.out.println("Enter Title: ");
+            String title = scn.nextLine();
+
+            System.out.println("Enter Publisher: ");
+            String publisher = scn.nextLine();
+
+            System.out.println("Enter Genre: ");
+            String genre = scn.nextLine();
+
+    
+
+            //type
             String type = "";
             while (true) {
-                System.out.print("Enter Type: DVDS, Books, Journals, Newspaper: ");
+                System.out.println("Enter Type: DVDS, Books, Journals, Newspapers: ");
                 type = scn.nextLine().toLowerCase();
                 if (type.equals("dvds") || type.equals("books") || type.equals("journals")
                         || type.equals("newspapers")) {
@@ -27,116 +42,81 @@ public class newCollectionEvent {
                 }
             }
 
-            System.out.print("Enter Title: ");
-            String title = scn.nextLine();
-
-            System.out.print("Enter Publisher: ");
-            String publisher = scn.nextLine();
-
-            System.out.print("Enter Genre: ");
-            String genre = scn.nextLine();
-
-            System.out.print("Creating a new member...");
-            Collections mem;
-
+         
             //switch based on type of collection and make new collection based on switch case
             switch (type) {
                 case "dvds":
-                    String ISBN = "";
-                    int runtime = 0;
-                    while (true) {
-                        System.out.print("Enter ISBN: ");
-                        ISBN = scn.nextLine();
+             
+                    System.out.print("Enter ISBN: ");
+                        String ISBN = scn.nextLine();
 
-                        try {
-                            System.out.print("Enter RunTime: ");
-                            runtime = Integer.parseInt(scn.nextLine());
-                            break;
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid input. Please enter a valid integer.");
-                        }
-                    }
-                    mem = new DVDs(collectionID, section, title, publisher, genre, ISBN, type, runtime);
+                    DVDs mem = new DVDs(collectionID, title, publisher, genre, ISBN, type);
+                    
+
+                    System.out.print("Creating a new member...");
+                    SaveToFile.save(mem.toString(), "Collectiondatabase.txt");
+
                     break;
+                
 
                 case "books":
-                    ISBN = "";
-                    String author = "";
-                    int amountOfPages = 0;
-                    while (true) {
-                        //add if to check if > 6 characters
-                        System.out.print("Enter ISBN: ");
-                        ISBN = scn.nextLine();
+                   
+                    System.out.print("Enter ISBN: ");
+                    ISBN = scn.nextLine();
 
-                        System.out.print("Enter Author: ");
-                        author = scn.nextLine();
+                    System.out.print("Enter Author: ");
+                    String author = scn.nextLine();
 
-                        try {
-                            System.out.print("Enter Amount of Pages: ");
-                            amountOfPages = Integer.parseInt(scn.nextLine());
-                            break;
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid input. Please enter a valid integer.");
-                        }
-                    }
-                    mem = new Books(collectionID, section, title, publisher, genre, ISBN, author, type, amountOfPages);
+                
+
+                    Books mem1 = new Books(collectionID, title, publisher, genre, ISBN, author, type);
+                    System.out.print("Creating a new member...");
+                    SaveToFile.save(mem1.toString(), "Collectiondatabase.txt");
+                    
                     break;
+                    
 
                 case "journals":
-                    String ISSN = "";
-                    author = "";
-                    amountOfPages = 0;
-                    while (true) {
-                        //check for > 6, different while loop
-                        System.out.print("Enter ISSN: ");
-                        ISSN = scn.nextLine();
 
-                        System.out.print("Enter Author: ");
-                        author = scn.nextLine();
+                    System.out.print("Enter ISSN: ");
+                    String ISSN = scn.nextLine();
 
-                        try {
-                            System.out.print("Enter Amount of Pages: ");
-                            amountOfPages = Integer.parseInt(scn.nextLine());
-                            break;
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid input. Please enter a valid integer.");
-                        }
-                    }
-                    mem = new Journals(collectionID, section, title, publisher, genre, type, ISSN, author,
-                            amountOfPages);
+                    System.out.print("Enter Author: ");
+                    author = scn.nextLine();
+
+                    Journals mem2 = new Journals(collectionID, title, publisher, genre, type, ISSN, author);
+                    System.out.print("Creating a new member...");
+                    SaveToFile.save(mem2.toString(), "Collectiondatabase.txt");
+                    
+
                     break;
+                    
 
                 case "newspapers":
-                    ISSN = "";
-                    author = "";
-                    amountOfPages = 0;
-                    while (true) {
-                        System.out.print("Enter ISSN: ");
-                        ISSN = scn.nextLine();
+                
+                    System.out.print("Enter ISSN: ");
+                    ISSN = scn.nextLine();
 
-                        System.out.print("Enter Author: ");
-                        author = scn.nextLine();
-
-                        try {
-                            System.out.print("Enter Amount of Pages: ");
-                            amountOfPages = Integer.parseInt(scn.nextLine());
-                            break;
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid input. Please enter a valid integer.");
-                        }
-                    }
-                    mem = new Newspapers(collectionID, section, title, publisher, genre, type, ISSN, amountOfPages);
+                
+                    Newspapers mem3 = new Newspapers(collectionID, title, publisher, genre, type, ISSN);
+                    System.out.print("Creating a new member...");
+                    SaveToFile.save(mem3.toString(), "Collectiondatabase.txt");
+                    
                     break;
+
+                    
                 default:
                     System.out.println("Invalid collection type. Please enter DVDS, Books, Journals, or Newspaper.");
                     return;
-            }
-            SaveToFile.save(mem.toString(), "Collectiondatabase.txt");
+                }
+
+        
 
             //catch error and output
         } catch (Exception e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-        }
+        } 
     }
 }
+

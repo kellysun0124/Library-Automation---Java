@@ -1,3 +1,1 @@
-1	asd	11/11/1111	asd	asd	asd	external
-2	asd	11/11/1111	asd	asd	sad	student
-3	asd	11/11/1111	asd	asd	asd	student
+000001	321 drive	12/10/2000	boscoman@gmail.com	987456541	bosco	student

@@ -1,38 +1,48 @@
 import java.util.*;
-import java.io.*;
 
-public class main {
-    public static void main(String[] args){
-        /*Books book1 = new Books();
-        /*
-        Books book1 = new Books();
-        System.out.println(book1.getISBN());
-        System.out.println(book1.getTitle());
-        */
+public class Books extends Collections {
+    protected String ISBN;
+    protected String author;
+ 
 
+    //set defaults and set type to book
+    public Books() {
+        super();
+        this.type = "Book";
+        this.ISBN = "0000000000000";
+        this.author = "Unknown Author";
 
-        /*
-        Books book2 = new Books("1", "Percy Jackson", "ABC123");
-        System.out.println(book2.getISBN());
-        System.out.println(book2.getTitle());
-        System.out.println(book2.getCollectionID());
-        System.out.println(book2.getCollectionID());
-        */
+    }
 
-        Date dob = new Date(0);
-        Member member1 = new Member("default", "default", dob, "default", "default", "0", "student");
-        
-        UpdateMember.update(member1);
+    public Books(String collectionID, String title, String ISBN) {
+        this();
+        this.collectionID = collectionID;
+        this.title = title;
+        this.ISBN = ISBN;
+    }
 
-        //newCollectionEvent.newCollectionEvent();
-        //RemoveCollectionEvent.removeCollection();
+    public Books(String collectionID, String title, String publisher, String genre, String ISBN,
+            String author, String type) {
+        super(collectionID, title, publisher, genre, type);
+        this.type = "books";
+        this.ISBN = ISBN;
+        this.author = author;
+    
+    }
 
-        Checkout.checkouts(member1);
-        //Checkout.checkouts(member1);
-        //Call this method with the member object to be updated
-        //UpdateMember.update(<member>);
+    public String getISBN() {
+        return this.ISBN;
+    }
 
-        //should make some data for each (books, dvd, journals, newpapers, professor, student, external, technicians)
-        //check all is working (newEmployee, newCOllectionEvent, newMemberEvent, removeCollectionEvent, removeEmployeeEvent, updateMember, CheckInEvent, checkoutEvent)
+    public String getAuthor() {
+        return this.author;
+    }
+
+    //make into string to be used with SaveToFile.java
+    
+    public String toString() {
+
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getType());
+
     }
 }

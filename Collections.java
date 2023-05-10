@@ -6,10 +6,9 @@ public abstract class Collections {
     protected String title;
     protected String genre;
 
-    //set defaults 
+    //set defaults
     public Collections() {
         this.collectionID = "Unknown CollectionID";
-        this.section = "Unknown Section";
         this.type = "Unknown Type";
         this.title = "Unknown Title";
         this.publisher = "Unknown Publisher";
@@ -17,9 +16,8 @@ public abstract class Collections {
     }
 
     //constructors
-    public Collections(String collectionID, String section, String title, String publisher, String genre, String type) {
+    public Collections(String collectionID, String title, String publisher, String genre, String type) {
         this.collectionID = collectionID;
-        this.section = section;
         this.title = title;
         this.publisher = publisher;
         this.genre = genre;
@@ -27,10 +25,6 @@ public abstract class Collections {
 
     public String getCollectionID() {
         return this.collectionID;
-    }
-
-    public String getSection() {
-        return this.section;
     }
 
     public String getType() {
