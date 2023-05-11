@@ -20,13 +20,15 @@ public class main {
         */
 
         Date dob = new Date(0);
-        Member member1 = new Member("default", "default", dob, "default", "default", "0", "student");
+        Member member1 = new Member();
         
         UpdateMember.update(member1);
+        //UpdateMember.update(member1);
 
         //newCollectionEvent.newCollectionEvent();
         //RemoveCollectionEvent.removeCollection();
 
+        newCollectionEvent.newCollectionEvent();
         Checkout.checkouts(member1);
         //Checkout.checkouts(member1);
         //Call this method with the member object to be updated
