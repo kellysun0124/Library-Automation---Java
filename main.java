@@ -1,48 +1,68 @@
 import java.util.*;
+import java.io.*;
 
-public class Books extends Collections {
-    protected String ISBN;
-    protected String author;
- 
+public class main {
+    public static void main(String[] args){
 
-    //set defaults and set type to book
-    public Books() {
-        super();
-        this.type = "Book";
-        this.ISBN = "0000000000000";
-        this.author = "Unknown Author";
+        
+        /*
+        Books book1 = new Books();
+        System.out.println(book1.getISBN());
+        System.out.println(book1.getTitle());
+        */
 
-    }
 
-    public Books(String collectionID, String title, String ISBN) {
-        this();
-        this.collectionID = collectionID;
-        this.title = title;
-        this.ISBN = ISBN;
-    }
+        /*
+        Books book2 = new Books("1", "Percy Jackson", "ABC123");
+        System.out.println(book2.getISBN());
+        System.out.println(book2.getTitle());
+        System.out.println(book2.getCollectionID());
+        */
 
-    public Books(String collectionID, String title, String publisher, String genre, String ISBN,
-            String author, String type) {
-        super(collectionID, title, publisher, genre, type);
-        this.type = "books";
-        this.ISBN = ISBN;
-        this.author = author;
-    
-    }
+        //newMemberEvent.newMemberEvent();
+        
+        //newCollectionEvent.newCollectionEvent();
+        //RemoveCollectionEvent.removeCollection();
 
-    public String getISBN() {
-        return this.ISBN;
-    }
+        //Call this method with the member object to be updated
+        //UpdateMember.update(<member>);
 
-    public String getAuthor() {
-        return this.author;
-    }
+        //should make some data for each (books, dvd, journals, newpapers, professor, student, external, technicians)
+        
+        //------------------------------------
+        //check all is working 
 
-    //make into string to be used with SaveToFile.java
-    
-    public String toString() {
+        //newEmployee, 
+        //newEmployee.newEmployeeEvent();
+        //YAYYYY works
 
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getType());
+        //newCOllectionEvent, 
+        //newCollectionEvent.newCollectionEvent();
+        //it workzzz
+       
 
+        //newMemberEvent, 
+        //newMemberEvent.newMemberEvent();
+        //yayyyyy it works
+        
+        //removeCollectionEvent, 
+        //removeCollectionEvent.removeCollectionEvent();
+        //yay it worksssz
+        
+        //removeEmployeeEvent, 
+        //removeEmployeeEvent.removeEmployeeEvent();
+        //it works ayayyayayayyayayyyyay
+        
+        //updateMember, 
+
+        
+        //CheckInEvent, 
+        //checkInEvent.checkInEvent();
+        //works just need to change txt files name 
+       
+        
+        //checkoutEvent
+
+        
     }
 }
