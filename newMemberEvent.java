@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 public class newMemberEvent {
     
-    public static void newMemberEvent(Member newMem){
+    public static void newMemberEvent(){
         Scanner scn = new Scanner(System.in);
         try{
             //get user input
