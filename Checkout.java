@@ -3,11 +3,12 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.regex.*;
 
 public class Checkout {
-    public static void checkouts(Member member) {
-        Scanner scn = new Scanner(System.in);
+    static Scanner scn = new Scanner(System.in);
 
+    public static void checkouts(Member member) {
         int id = Integer.parseInt(member.getMemberID());
         boolean valid = false;
 
@@ -24,7 +25,6 @@ public class Checkout {
                     System.out.println(" *Empty");
                 }
             }
-
             
             ArrayList<String> itemList = new ArrayList<>();
             
@@ -35,14 +35,8 @@ public class Checkout {
                 System.out.printf("You can checkout %d more items.\n", more);
                 System.out.print("Would you like to checkout another item?(y/n) ");
                 
-                String answer = "";
-
-                if(scn.hasNextLine()) {
-                    answer = scn.nextLine();
-                } else {
-                    System.out.println("NO INPUT");
-                }
-                
+                String answer = scn.nextLine();
+                boolean validInput = false;
 
                 if (answer.toLowerCase().equals("y")) {
                     String newItemID = checkoutNewItem(scn);
@@ -60,6 +54,7 @@ public class Checkout {
     }
 
     private static String checkoutNewItem(Scanner scn) {
+        System.out.print("Enter the ISBN/ISSN of the item you want to checkout: ");
         String itemID = scn.nextLine();
 
         boolean valid = false;
@@ -75,11 +70,14 @@ public class Checkout {
 
             while ((curr = reader.readLine()) != null) {
                 String[] collectionInfo = curr.split("\t");
+                
                 collectionID = collectionInfo[0];
-                String isbn = collectionInfo[1];
+                
+                String isbn = collectionInfo[4];
 
-                if (itemID == isbn) {
+                if (itemID.strip().equals(isbn)) {
                     found = true;
+                    System.out.println(collectionID);
                     break;
                 }
             }
@@ -157,5 +155,9 @@ public class Checkout {
         }
 
         return false;
+    }
+
+    public static void closeScanner() {
+        scn.close();
     }
 }

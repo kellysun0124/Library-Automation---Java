@@ -10,10 +10,10 @@ public class Person {
 
     // Default constructor 
     public Person() {
-        this.name = "default";
-        this.address = "default";
-        this.email = "default";
-        this.socialSecurityNumber = "default";
+        this.name = "name";
+        this.address = "address";
+        this.email = "email";
+        this.socialSecurityNumber = "ssn";
         Date dob = new Date(0);
         this.dateOfBirth = dob;
     }
