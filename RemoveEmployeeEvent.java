@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class RemoveEmployeeEvent {
+public class removeEmployeeEvent {
 
     public static void removeEmployeeEvent() {
         //get user input
         Scanner scn = new Scanner(System.in);
         System.out.println("Enter Employee ID to remove: ");
-        int idToRemove = scn.nextInt();
-        scn.nextLine();
+        String idToRemove = scn.nextLine();
+        //scn.nextLine();
 
         List<String> lines = new ArrayList<>();
         //access employeedatabase.txt
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("employeedatabase.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("employees.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
@@ -32,7 +32,8 @@ public class RemoveEmployeeEvent {
         boolean found = false;
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
-            if (line.startsWith("ID:" + idToRemove)) {
+            //if (line.startsWith("ID:" + idToRemove)) {
+            if (line.startsWith(idToRemove)) {
                 lines.remove(i);
                 found = true;
                 break;
@@ -45,7 +46,7 @@ public class RemoveEmployeeEvent {
         }
 
         try {
-            FileWriter writer = new FileWriter("employeedatabase.txt");
+            FileWriter writer = new FileWriter("employees.txt");
             for (String line : lines) {
                 writer.write(line + "\n");
             }

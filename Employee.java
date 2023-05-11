@@ -5,8 +5,8 @@ public class Employee extends Person {
     protected String empType;
 
     // Constructor
-    public Employee(String name, String address, Date dateOfBirth, String email, String socialSecurityNumber,
-            String empType, int employeeNumber) {
+    public Employee(int employeeNumber, String name, String address, Date dateOfBirth, String email, String socialSecurityNumber,
+            String empType) {
         super(name, address, dateOfBirth, email, socialSecurityNumber);
         this.employeeNumber = employeeNumber;
         this.empType = empType;
@@ -27,7 +27,7 @@ public class Employee extends Person {
 
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getName(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getEmpType(), this.getEmployeeNumber());
+        return String.format("%2d\t%s\t%s\t%s\t%s\t%s\t%s\t\n", this.getEmployeeNumber(), this.getName(), this.getAddress(), this.getDateOfBirth(), this.getEmail(), this.getSocialSecurityNumber(), this.getEmpType());
     }
 
 }

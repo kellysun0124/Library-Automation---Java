@@ -19,9 +19,9 @@ public class Journals extends Collections {
         this.ISSN = ISSN;
     }
 
-    public Journals(String collectionID, String section, String title, String publisher, String genre, String type,
+    public Journals(String collectionID, String title, String publisher, String genre, String type,
             String ISSN, String author) {
-        super(collectionID, section, title, publisher, genre, type);
+        super(collectionID, title, publisher, genre, type);
         this.type = "Journal";
         this.ISSN = ISSN;
         this.author = author;
@@ -39,6 +39,7 @@ public class Journals extends Collections {
 
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISSN(), this.getAuthor());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getType(), this.getISSN(), this.getAuthor());
     }
 }
+   

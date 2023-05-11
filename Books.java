@@ -3,7 +3,7 @@ import java.util.*;
 public class Books extends Collections {
     protected String ISBN;
     protected String author;
-    protected int amountOfPages;
+ 
 
     //set defaults and set type to book
     public Books() {
@@ -11,7 +11,7 @@ public class Books extends Collections {
         this.type = "Book";
         this.ISBN = "0000000000000";
         this.author = "Unknown Author";
-        this.amountOfPages = 0;
+
     }
 
     public Books(String collectionID, String title, String ISBN) {
@@ -21,13 +21,13 @@ public class Books extends Collections {
         this.ISBN = ISBN;
     }
 
-    public Books(String collectionID, String section, String title, String publisher, String genre, String ISBN,
-            String author, String type, int amountOfPages) {
-        super(collectionID, section, title, publisher, genre, type);
-        this.type = "Book";
+    public Books(String collectionID, String title, String publisher, String genre, String ISBN,
+            String author, String type) {
+        super(collectionID, title, publisher, genre, type);
+        this.type = "books";
         this.ISBN = ISBN;
         this.author = author;
-        this.amountOfPages = amountOfPages;
+    
     }
 
     public String getISBN() {
@@ -38,11 +38,11 @@ public class Books extends Collections {
         return this.author;
     }
 
-    public int getAmountOfPages() {
-        return this.amountOfPages;
-    }
     //make into string to be used with SaveToFile.java
+    
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%2d\n", this.getCollectionID(), this.getISBN(), this.getSection(), this.getType(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getAuthor(), this.getAmountOfPages());
-    }
+
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getType());
+
+    }  
 }
