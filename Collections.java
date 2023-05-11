@@ -1,5 +1,4 @@
 public abstract class Collections {
-    protected String section;
     protected String collectionID;
     protected String type;
     protected String publisher;
@@ -23,6 +22,7 @@ public abstract class Collections {
         this.genre = genre;
     }
 
+
     public String getCollectionID() {
         return this.collectionID;
     }
@@ -32,7 +32,7 @@ public abstract class Collections {
     }
 
     public String getGenre() {
-        return this.type;
+        return this.genre;
     }
 
     public String getPublisher() {

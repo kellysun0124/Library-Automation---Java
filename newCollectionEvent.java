@@ -42,7 +42,7 @@ public class newCollectionEvent {
                 }
             }
 
-         
+            
             //switch based on type of collection and make new collection based on switch case
             switch (type) {
                 case "dvds":
@@ -52,6 +52,7 @@ public class newCollectionEvent {
 
                     DVDs mem = new DVDs(collectionID, title, publisher, genre, ISBN, type);
                     
+                 
 
                     System.out.print("Creating a new member...");
                     SaveToFile.save(mem.toString(), "Collectiondatabase.txt");
@@ -72,6 +73,7 @@ public class newCollectionEvent {
                     Books mem1 = new Books(collectionID, title, publisher, genre, ISBN, author, type);
                     System.out.print("Creating a new member...");
                     SaveToFile.save(mem1.toString(), "Collectiondatabase.txt");
+                    //System.out.print(mem1.toString());
                     
                     break;
                     

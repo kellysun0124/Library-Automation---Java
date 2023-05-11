@@ -1,0 +1,2 @@
+100001	kelly sun	123 lane	01/04/2000		123121234	librarian	
+100002	bosco kim	321 drive	04/05/2000		987787897	technician	
