@@ -32,7 +32,7 @@ public abstract class Collections {
     }
 
     public String getGenre() {
-        return this.type;
+        return this.genre;
     }
 
     public String getPublisher() {
