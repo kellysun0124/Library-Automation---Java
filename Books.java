@@ -42,7 +42,7 @@ public class Books extends Collections {
     
     public String toString() {
 
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getType());
+        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getISBN(), this.getAuthor(), this.getType());
 
     }  
 }
