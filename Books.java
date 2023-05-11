@@ -8,7 +8,7 @@ public class Books extends Collections {
     //set defaults and set type to book
     public Books() {
         super();
-        this.type = "Book";
+        this.type = "Books";
         this.ISBN = "0000000000000";
         this.author = "Unknown Author";
 
@@ -24,7 +24,7 @@ public class Books extends Collections {
     public Books(String collectionID, String title, String publisher, String genre, String ISBN,
             String author, String type) {
         super(collectionID, title, publisher, genre, type);
-        this.type = "books";
+        this.type = "Books";
         this.ISBN = ISBN;
         this.author = author;
     
