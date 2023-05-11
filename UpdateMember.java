@@ -6,14 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 public class UpdateMember {
-    public static void update(Member memberToUpdate) {
-        Scanner scn = new Scanner(System.in);
+    static Scanner scn = new Scanner(System.in);
 
+    public static void update(Member memberToUpdate) {
         int id = Integer.parseInt(memberToUpdate.getMemberID());
         boolean newMember = false;
         boolean valid = false;
 
-        SaveToFile.save(memberToUpdate.toString(), "members.txt");
         File members = null;
         File checkouts = null;
         File temp = null;
@@ -21,6 +20,10 @@ public class UpdateMember {
         BufferedReader reader = null;
         BufferedWriter writer = null;
         BufferedWriter checkoutWriter = null;
+
+        if(id == 0) {
+            SaveToFile.save(memberToUpdate.toString(), "members.txt");
+        }
 
         try {
             members = new File("members.txt");
@@ -39,12 +42,12 @@ public class UpdateMember {
             while ((curr = reader.readLine()) != null) {
                 String[] memberInfo = curr.split("\t");
                 int memID = Integer.parseInt(memberInfo[0].strip());
-                String email = memberInfo[3];
-                String origDob = memberInfo[2];
-                String address = memberInfo[1];
+                String email = memberInfo[4];
+                String origDob = memberInfo[3];
+                String address = memberInfo[2];
                 String memberType = memberInfo[6];
-                String name = memberInfo[5];
-                String ssn = memberInfo[4];
+                String name = memberInfo[1];
+                String ssn = memberInfo[5];
                 
                 Date dob = new Date(0);
                 boolean newDOB = false;
@@ -58,13 +61,13 @@ public class UpdateMember {
                     if (id != 0 ) {
                         newMember = false;
                         System.out.println("\nCurrent Member Information: " + curr);
-                        System.out.println("\nWhat would you like to update? (Address, DOB, Email, Name, or Member Type): ");
+                        //System.out.print("\nWhat would you like to update? (Address, DOB, Email, Name, or Member Type): ");
                         
-                        String change = scn.nextLine();
+                        String change = inputChange(scn);
 
                         while(!isValidOption(change)) {
                             System.out.println("\nInvalid option. Please choose a valid option (address, dob, email, name, or member type):");
-                            change = scn.nextLine();
+                            change = inputChange(scn);
                         }
 
                         switch (change.toLowerCase()) {
@@ -96,6 +99,7 @@ public class UpdateMember {
                         newDOB = true;
                         dob = inputDOB(scn, memberToUpdate);
                         memberType = inputType(scn, memberToUpdate);
+                        ssn = inputSSN(scn, memberToUpdate);
 
                         memberID = GetIDs.returnID("members.txt");
                         memberToUpdate.setMemberID(memberID);
@@ -104,7 +108,6 @@ public class UpdateMember {
                         checkoutWriter.write(checkoutInfo);
                     }
 
-                    System.out.println("\nSuccessfully updated member " + memberID + "\n");
                     memberID = memberToUpdate.getMemberID();
 
                     String dobString;
@@ -148,7 +151,6 @@ public class UpdateMember {
                 e.printStackTrace();
             }
         }
-        scn.close();
     }
 
     private static int validID(Scanner scn) {
@@ -218,6 +220,16 @@ public class UpdateMember {
         return name;
     }
 
+    private static String inputSSN(Scanner scn, Member memberToUpdate) {
+        String ssn;
+
+        System.out.print("\nEnter new SSN: ");
+        ssn = scn.nextLine();
+        memberToUpdate.setSocialSecurityNumber(ssn);
+        
+        return ssn;
+    }
+
     private static Date inputDOB(Scanner scn, Member memberToUpdate) {
         Date dob = new Date(0);
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -259,5 +271,18 @@ public class UpdateMember {
         memberToUpdate.setMemberType(memberType);
 
         return memberType;
+    }
+
+    private static String inputChange(Scanner scn) {
+        String change;
+
+        System.out.print("\nWhat would you like to update? (Address, DOB, Email, Name, or Member Type): ");
+        change = scn.nextLine();
+
+        return change;
+    }
+
+    public static void closeScanner() {
+        scn.close();
     }
 }

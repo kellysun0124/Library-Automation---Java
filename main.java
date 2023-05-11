@@ -18,7 +18,19 @@ public class main {
         System.out.println(book2.getTitle());
         System.out.println(book2.getCollectionID());
         */
+      
+        Date dob = new Date(0);
+        Member member1 = new Member();
+        
+        UpdateMember.update(member1);
+        //UpdateMember.update(member1);
 
+        //newCollectionEvent.newCollectionEvent();
+        //RemoveCollectionEvent.removeCollection();
+
+        newCollectionEvent.newCollectionEvent();
+        Checkout.checkouts(member1);
+        //Checkout.checkouts(member1);
         //newMemberEvent.newMemberEvent();
         
         //newCollectionEvent.newCollectionEvent();
