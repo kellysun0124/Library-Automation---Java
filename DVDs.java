@@ -6,7 +6,7 @@ public class DVDs extends Collections {
     //default & set type to dvd
     public DVDs() {
         super();
-        this.type = "DVD";
+        this.type = "DVDs";
         this.ISBN = "0000000000000";
     }
 
@@ -20,7 +20,7 @@ public class DVDs extends Collections {
     public DVDs(String collectionID, String title, String publisher, String genre, String ISBN,
             String type) {
         super(collectionID, title, publisher, genre, type);
-        this.type = "DVD";
+        this.type = "DVDs";
         this.ISBN = ISBN;
     }
 
@@ -34,4 +34,5 @@ public class DVDs extends Collections {
     public String toString() {
         return String.format("%s,%s,%s,%s,%s,%s\n", this.getCollectionID(), this.getISBN(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getType());
     }
+
 }

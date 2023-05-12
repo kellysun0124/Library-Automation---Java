@@ -1,3 +1,8 @@
-100001	harry potter 1	penguin	books	1111111111111	jk rowling
-100002	lord of the rings	$s	$s	$s	$s
-100003	presidential affair!?	columbia times	Newspaper	Newspaper	1111111111113
+100002	spongebob	nicklodeon	children	1111111111112	DVDs
+100003	30 under 30	times	ecnomics	Journal	11111111	becky smith
+100004	earthquake!	times	news	Newspaper	11111112
+100001	harry potter 1	penguin	fiction	1111111111111	jk rowling
+100005	harry potter 2	penguin	fiction	1111111111112	jk rowling
+100006	harry potter 3	penguin	fiction	1111111111113	jk rowling	Books
+100007	harry potter 4	penguin	fiction	1111111111114	jk rowling	Books
+100008	hannah montanna	disney	children	1111111111115	DVDs

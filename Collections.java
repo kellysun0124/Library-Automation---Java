@@ -1,5 +1,4 @@
 public abstract class Collections {
-    protected String section;
     protected String collectionID;
     protected String type;
     protected String publisher;
@@ -22,6 +21,7 @@ public abstract class Collections {
         this.publisher = publisher;
         this.genre = genre;
     }
+
 
     public String getCollectionID() {
         return this.collectionID;
