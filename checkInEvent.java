@@ -1,78 +1,80 @@
 import java.io.*;
 import java.util.Scanner;
+import java.util.*;
 
 public class checkInEvent {
 
-    public static void checkInEvent() {
+    public static void checkInEvent(ArrayList<Member> memberList) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter the ID of the collection to be checked in: ");
-        String collectionId = scanner.nextLine();
+        Member member = null;
 
-        File myFile = new File("Collectiondatabase.txt");
-        File tempFile = new File("temp.txt");
-        try (BufferedReader reader = new BufferedReader(new FileReader(myFile));
-                FileWriter writer = new FileWriter(tempFile)) {
-            String lineToRemove = collectionId;
-            String currentLine;
-            boolean found = false;
+        System.out.print("Enter the ID of the member to check in for: ");
+        String inputId = scanner.nextLine().strip();
 
-            while ((currentLine = reader.readLine()) != null) {
-                if (currentLine.startsWith(lineToRemove)) {
-                    found = true;
-                    continue;
+        for(Member mem : memberList) {
+            if(inputId.equals(mem.getMemberID())) {
+                member = mem;
+            }
+        }
+
+        if(member == null) {
+            System.out.println("There was no member found with member ID " + inputId);
+        } else {
+
+            System.out.print("Please enter the ID of the collection to be checked in: ");
+            String collectionId = scanner.nextLine();
+
+            File myFile = new File("CheckedOutItems.txt");
+            File tempFile = new File("tempCheckedIn.txt");
+
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(myFile));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+                
+                String lineToRemove = collectionId;
+                String currentLine;
+                boolean found = false;
+
+                while ((currentLine = reader.readLine()) != null) {
+                    String[] currline = currentLine.split("\t");
+                    String memID = currline[0];
+                    String col1 = currline[1];
+                    String col2 = currline[2];
+                    String col3 = currline[3];
+                    String col4 = currline[4];
+                    String col5 = currline[5];
+                    int i = 0;
+
+                    for(String col : currline) {
+                        if(col.equals(collectionId)) {
+                            member.setCheckedOut(i, "0");
+                            writer.write("0\t");
+                            found = true;
+                        } else {
+                            writer.write(col + "\t");
+                        }
+                        i++;
+                    }
+
+                    writer.newLine();
+                }
+
+                if (!found) {
+                    System.out.println("Book not found.");
                 } else {
-                    writer.write(currentLine + "\n"); // changed to "\n"
-                }
-            }
-
-            if (!found) {
-                System.out.println("Book not found.");
-            } else {
-                System.out.println("Book returned successfully.");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(tempFile));
-            FileWriter writer = new FileWriter(myFile);
-            String currentLine;
-
-            while ((currentLine = reader.readLine()) != null) {
-                String[] elements = currentLine.split("\t");
-                if (elements.length < 8) {
-                    continue;
+                    System.out.println("Book returned successfully.");
                 }
 
-                String collectionID = elements[0];
-                String section = elements[1];
-                String title = elements[2];
-                String publisher = elements[3];
-                String genre = elements[4];
-                String ISBN = elements[5];
-                String type = elements[6];
-                int runtime = Integer.parseInt(elements[7]);
+                reader.close();
+                writer.close();
 
-                String formattedCollection = String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%d",
-                        collectionID, section, title, publisher, genre, ISBN, type, runtime);
-                writer.write(formattedCollection + "\n"); // changed to "\n"
+                scanner.close();
+                myFile.delete();
+                tempFile.renameTo(myFile);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            writer.close();
-            reader.close();
-
-            if (!myFile.delete()) {
-                System.out.println("Could not delete the original file.");
-            }
-            if (!tempFile.renameTo(myFile)) {
-                System.out.println("Could not rename the temporary file.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
     }
 }

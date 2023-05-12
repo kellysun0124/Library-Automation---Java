@@ -21,23 +21,18 @@ public class main {
       
         Date dob = new Date(0);
         Member member1 = new Member();
-        
-        UpdateMember.update(member1);
+        ArrayList<Member> memArr = new ArrayList<>();
+        memArr.add(member1);
+
+        //UpdateMember.update(memArr);
+    
         //UpdateMember.update(member1);
 
-        //newCollectionEvent.newCollectionEvent();
-        //RemoveCollectionEvent.removeCollection();
-
         newCollectionEvent.newCollectionEvent();
-        Checkout.checkouts(member1);
-        //Checkout.checkouts(member1);
-        //newMemberEvent.newMemberEvent();
-        
-        //newCollectionEvent.newCollectionEvent();
-        //RemoveCollectionEvent.removeCollection();
+        RemoveCollectionEvent.removeCollectionEvent();
 
-        //Call this method with the member object to be updated
-        //UpdateMember.update(<member>);
+        Checkout.checkouts(memArr);
+        checkInEvent.checkInEvent(memArr);
 
         //should make some data for each (books, dvd, journals, newpapers, professor, student, external, technicians)
         
