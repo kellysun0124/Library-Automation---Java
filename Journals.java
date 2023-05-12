@@ -35,15 +35,7 @@ public class Journals extends Collections {
         return this.author;
     }
 
-    /*
-      public String getGenre() {
-        return this.genre;
-    } 
-     */
-   
-
-
-    //make into string to be used with SaveToFile.java
+  
     public String toString() {
         return String.format("%s,%s,%s,%s,%s,%s,%s\n", this.getCollectionID(), this.getISSN(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getType(), this.getAuthor());
     }
