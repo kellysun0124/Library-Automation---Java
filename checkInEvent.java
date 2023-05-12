@@ -70,8 +70,14 @@ public class checkInEvent {
                 writer.close();
 
                 scanner.close();
-                myFile.delete();
-                tempFile.renameTo(myFile);
+
+                if (!myFile.delete()) {
+                    System.out.println("Could not delete the original file.");
+                }
+                if (!tempFile.renameTo(myFile)) {
+                    System.out.println("Could not rename the temporary file.");
+                }
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
