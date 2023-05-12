@@ -8,147 +8,171 @@ import java.util.regex.Pattern;
 public class UpdateMember {
     static Scanner scn = new Scanner(System.in);
 
-    public static void update(Member memberToUpdate) {
-        int id = Integer.parseInt(memberToUpdate.getMemberID());
-        boolean newMember = false;
-        boolean valid = false;
+    public static void update(ArrayList<Member> memberList) {
+        Member memberToUpdate = null;
+        String inputId;
 
-        File members = null;
-        File checkouts = null;
-        File temp = null;
+        Member last = memberList.get(memberList.size()-1);
 
-        BufferedReader reader = null;
-        BufferedWriter writer = null;
-        BufferedWriter checkoutWriter = null;
-
-        if(id == 0) {
-            SaveToFile.save(memberToUpdate.toString(), "members.txt");
+        if(!last.getMemberID().equals("0")) {
+            System.out.print("Enter the member ID to update: ");
+            inputId = scn.nextLine().strip();
+            memberToUpdate = null;
+        } else {
+            memberToUpdate = last;
+            inputId = "0";
         }
 
-        try {
-            members = new File("members.txt");
-            temp = new File("tempMem.txt");
-            checkouts = new File("CheckedOutItems.txt");
-
-            reader = new BufferedReader(new FileReader(members));
-            writer = new BufferedWriter(new FileWriter(temp));
-            checkoutWriter = new BufferedWriter(new FileWriter(checkouts, true));
-
-            String curr;
-            boolean found = false;
-            String memberID = "0";
-            String lastline = "";
-
-            while ((curr = reader.readLine()) != null) {
-                String[] memberInfo = curr.split("\t");
-                int memID = Integer.parseInt(memberInfo[0].strip());
-                String email = memberInfo[4];
-                String origDob = memberInfo[3];
-                String address = memberInfo[2];
-                String memberType = memberInfo[6];
-                String name = memberInfo[1];
-                String ssn = memberInfo[5];
-                
-                Date dob = new Date(0);
-                boolean newDOB = false;
-                SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                boolean newID = false;
-
-                if (memberInfo.length >= 1 && memID == id && found == false) {
-                    found = true;
-                    // update member
-
-                    if (id != 0 ) {
-                        newMember = false;
-                        System.out.println("\nCurrent Member Information: " + curr);
-                        //System.out.print("\nWhat would you like to update? (Address, DOB, Email, Name, or Member Type): ");
-                        
-                        String change = inputChange(scn);
-
-                        while(!isValidOption(change)) {
-                            System.out.println("\nInvalid option. Please choose a valid option (address, dob, email, name, or member type):");
-                            change = inputChange(scn);
-                        }
-
-                        switch (change.toLowerCase()) {
-                            case "dob":
-                                newDOB = true;
-                                dob = inputDOB(scn, memberToUpdate);
-                                break;
-                            case "address":
-                                address = inputAddress(scn, memberToUpdate);
-                                break;
-                            case "email":
-                                email = inputEmail(scn, memberToUpdate);
-                                break;
-                            case "member type":
-                                memberType = inputType(scn, memberToUpdate);
-                                break;
-                            case "name":
-                                name = inputName(scn, memberToUpdate);
-                                break;
-                        }
-                    } else {
-                        System.out.println("\nPlease enter all of the information below: ");
-                        System.out.print("---------------------------------------------");
-                        newMember = true;
-
-                        address = inputAddress(scn, memberToUpdate);
-                        email = inputEmail(scn, memberToUpdate);
-                        name = inputName(scn, memberToUpdate);
-                        newDOB = true;
-                        dob = inputDOB(scn, memberToUpdate);
-                        memberType = inputType(scn, memberToUpdate);
-                        ssn = inputSSN(scn, memberToUpdate);
-
-                        memberID = GetIDs.returnID("members.txt");
-                        memberToUpdate.setMemberID(memberID);
-
-                        String checkoutInfo = String.format("%s\t0\t0\t0\t0\t0\n", memberID);
-                        checkoutWriter.write(checkoutInfo);
-                    }
-
-                    memberID = memberToUpdate.getMemberID();
-
-                    String dobString;
-
-                    if (newDOB == true) {
-                        dobString = dateFormat.format(dob);
-                    } else {
-                        dobString = origDob;
-                    }
-                    String updatedInfo = String.format("%-10s\t%-20s\t%-30s\t%-12s\t%-30s\t%-10s\t%-10s\n", memberID, name, address, dobString, email, ssn, memberType);
-                    // Write the updated line to the temp file
-                    writer.write(updatedInfo);
-
-                } else {
-                    // Write the original line to the temp file
-                    if (memID != Integer.parseInt(memberID)) {
-                        writer.write(curr);
-                        writer.newLine();
-                    }
-                }
-            
+        for(Member mem : memberList) {
+            if(inputId.equals(mem.getMemberID())) {
+                memberToUpdate = mem;
             }
-            if (!found) {
-                System.out.println("Member ID not found.");
-            } else {
-                // Replace the original file with the updated temp file
-                System.out.println("Member information updated successfully.");
+        }
+
+        if(memberToUpdate == null) {
+            System.out.println("There was no member found with member ID " + inputId);
+        } else {
+            int id = Integer.parseInt(memberToUpdate.getMemberID());
+            boolean newMember = false;
+            boolean valid = false;
+
+            File members = null;
+            File checkouts = null;
+            File temp = null;
+
+            BufferedReader reader = null;
+            BufferedWriter writer = null;
+            BufferedWriter checkoutWriter = null;
+
+            if(id == 0) {
+                SaveToFile.save(memberToUpdate.toString(), "members.txt");
             }
-        } catch (IOException e) {
-            System.out.println("There was an error trying to update member " + id);
-            e.printStackTrace();
-        } finally {
+
             try {
-                reader.close();
-                writer.close();
-                checkoutWriter.close();
-                members.delete();
-                temp.renameTo(members);
+                members = new File("members.txt");
+                temp = new File("tempMem.txt");
+                checkouts = new File("CheckedOutItems.txt");
+
+                reader = new BufferedReader(new FileReader(members));
+                writer = new BufferedWriter(new FileWriter(temp));
+                checkoutWriter = new BufferedWriter(new FileWriter(checkouts, true));
+
+                String curr;
+                boolean found = false;
+                String memberID = "0";
+                String lastline = "";
+
+                while ((curr = reader.readLine()) != null) {
+                    String[] memberInfo = curr.split("\t");
+                    int memID = Integer.parseInt(memberInfo[0].strip());
+                    String email = memberInfo[4];
+                    String origDob = memberInfo[3];
+                    String address = memberInfo[2];
+                    String memberType = memberInfo[6];
+                    String name = memberInfo[1];
+                    String ssn = memberInfo[5];
+                    
+                    Date dob = new Date(0);
+                    boolean newDOB = false;
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                    boolean newID = false;
+
+                    if (memberInfo.length >= 1 && memID == id && found == false) {
+                        found = true;
+                        // update member
+
+                        if (id != 0 ) {
+                            newMember = false;
+                            System.out.println("\nCurrent Member Information: " + curr);
+                            //System.out.print("\nWhat would you like to update? (Address, DOB, Email, Name, or Member Type): ");
+                            
+                            String change = inputChange(scn);
+
+                            while(!isValidOption(change)) {
+                                System.out.println("\nInvalid option. Please choose a valid option (address, dob, email, name, or member type):");
+                                change = inputChange(scn);
+                            }
+
+                            switch (change.toLowerCase()) {
+                                case "dob":
+                                    newDOB = true;
+                                    dob = inputDOB(scn, memberToUpdate);
+                                    break;
+                                case "address":
+                                    address = inputAddress(scn, memberToUpdate);
+                                    break;
+                                case "email":
+                                    email = inputEmail(scn, memberToUpdate);
+                                    break;
+                                case "member type":
+                                    memberType = inputType(scn, memberToUpdate);
+                                    break;
+                                case "name":
+                                    name = inputName(scn, memberToUpdate);
+                                    break;
+                            }
+                        } else {
+                            System.out.println("\nPlease enter all of the information below: ");
+                            System.out.print("---------------------------------------------");
+                            newMember = true;
+
+                            address = inputAddress(scn, memberToUpdate);
+                            email = inputEmail(scn, memberToUpdate);
+                            name = inputName(scn, memberToUpdate);
+                            newDOB = true;
+                            dob = inputDOB(scn, memberToUpdate);
+                            memberType = inputType(scn, memberToUpdate);
+                            ssn = inputSSN(scn, memberToUpdate);
+
+                            memberID = GetIDs.returnID("members.txt");
+                            memberToUpdate.setMemberID(memberID);
+
+                            String checkoutInfo = String.format("%s\t0\t0\t0\t0\t0\n", memberID);
+                            checkoutWriter.write(checkoutInfo);
+                        }
+
+                        memberID = memberToUpdate.getMemberID();
+
+                        String dobString;
+
+                        if (newDOB == true) {
+                            dobString = dateFormat.format(dob);
+                        } else {
+                            dobString = origDob;
+                        }
+                        String updatedInfo = String.format("%-10s\t%-20s\t%-30s\t%-12s\t%-30s\t%-10s\t%-10s\n", memberID, name, address, dobString, email, ssn, memberType);
+                        // Write the updated line to the temp file
+                        writer.write(updatedInfo);
+
+                    } else {
+                        // Write the original line to the temp file
+                        if (memID != Integer.parseInt(memberID)) {
+                            writer.write(curr);
+                            writer.newLine();
+                        }
+                    }
+                
+                }
+                if (!found) {
+                    System.out.println("Member ID not found.");
+                } else {
+                    // Replace the original file with the updated temp file
+                    System.out.println("Member information updated successfully.");
+                }
             } catch (IOException e) {
-                System.out.println("There was an error trying to close the files.");
+                System.out.println("There was an error trying to update member " + id);
                 e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                    writer.close();
+                    checkoutWriter.close();
+                    members.delete();
+                    temp.renameTo(members);
+                } catch (IOException e) {
+                    System.out.println("There was an error trying to close the files.");
+                    e.printStackTrace();
+                }
             }
         }
     }

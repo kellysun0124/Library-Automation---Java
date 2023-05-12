@@ -39,7 +39,7 @@ public class Journals extends Collections {
 
     //make into string to be used with SaveToFile.java
     public String toString() {
-        return String.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", this.getCollectionID(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getType(), this.getISSN(), this.getAuthor());
+        return String.format("%s,%s,%s,%s,%s,%s,%s\n", this.getCollectionID(), this.getISSN(), this.getTitle(), this.getPublisher(), this.getGenre(), this.getType(), this.getAuthor());
     }
 }
    

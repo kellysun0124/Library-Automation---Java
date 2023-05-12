@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class removeCollectionEvent {
+public class RemoveCollectionEvent {
 
     public static void removeCollectionEvent() {
         Scanner scanner = new Scanner(System.in);
@@ -32,34 +32,6 @@ public class removeCollectionEvent {
                 System.out.println("Collection removed successfully.");
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(tempFile));
-            FileWriter writer = new FileWriter(myFile);
-            String currentLine;
-
-            while ((currentLine = reader.readLine()) != null) {
-                String[] elements = currentLine.split("\t");
-                if (elements.length < 8) {
-                    continue;
-                }
-
-                String collectionID = elements[0];
-                String title = elements[1];
-                String publisher = elements[2];
-                String genre = elements[3];
-                String ISBN = elements[4];
-                String type = elements[5];
-                int runtime = Integer.parseInt(elements[6]);
-
-                String formattedCollection = String.format("%s\t%s\t%s\t%s\t%s\t%s",
-                        collectionID, title, publisher, genre, ISBN, type, runtime);
-                writer.write(formattedCollection + "\n"); // changed to "\n"
-            }
-
             writer.close();
             reader.close();
 
@@ -69,9 +41,9 @@ public class removeCollectionEvent {
             if (!tempFile.renameTo(myFile)) {
                 System.out.println("Could not rename the temporary file.");
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
