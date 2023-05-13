@@ -7,26 +7,12 @@ public class GetIDs {
         int count = 0;
         String countString;
 
-        switch (filename) {
-            case "members.txt":
-                if(f.exists()) {
-                    count = countLines(filename);
-                } else {
-                    count += 1;
-                }
-                countString = Integer.toString(count);
-                return countString;
-            case "employees.txt":
-                if(f.exists()) {
-                    count = countLines(filename);
-                } else {
-                    count += 1;
-                }
-                countString = Integer.toString(count);
-                return countString;
-            default:
-                return "Invalid filename";
+        if(f.exists()) {
+            count = countLines(filename);
+        } else {
+            count += 1;
         }
+        countString = Integer.toString(count);
     }
 
     public static int countLines(String filename) {
