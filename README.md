@@ -2,7 +2,7 @@
 
 ## To Launch GUI for Library System follow these steps!
 
-### Step 1 Download the JavaProgram2.Zip File that is in repository
+### Step 1 Download the Finalproject.Zip File that is in repository
 
 ### Step 2 Import the .zip file to NETBEANS and Make sure that NETBEANS has JAVAFX installed before hand
 
