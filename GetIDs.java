@@ -9,6 +9,7 @@ public class GetIDs {
 
         if(f.exists()) {
             count = countLines(filename);
+            count += 1;
         } else {
             count += 1;
         }
