@@ -15,7 +15,7 @@ public class removeEmployeeEvent {
         String idToRemove = scn.nextLine();
         //scn.nextLine();
 
-        List<String> lines = new ArrayList<>();
+        //List<String> lines = new ArrayList<>();
         //access employeedatabase.txt
         try {
             BufferedReader reader = new BufferedReader(new FileReader("employees.txt"));
