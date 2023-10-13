@@ -13,3 +13,6 @@
 ### Step 5 Right Click on "Javaprogram2" and choose "RUN" and make sure that you RUN out of the MAIN package and it should launch the program
 
 ### Step 6 Enjoy!!! :)
+
+
+Here is a [video](https://www.youtube.com/watch?v=fm6a7LRyJQ0&ab_channel=PaceOfSol) of our group doing a 20 min presentation on this project.
